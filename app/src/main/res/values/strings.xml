@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Food Fit</string>
+    <string name="my_website">www.denmau.me</string>
+    <string name="splash_screen_image">splash screen image</string>
+</resources>
