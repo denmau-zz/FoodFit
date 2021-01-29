@@ -74,8 +74,9 @@ public class AboutAppActivity extends AppCompatActivity {
         for (int i = 0; i <= 1; i++) {
             int finalI = i;
             if (finalI < (aboutAppDetails.size() - 1)) {
-                Log.d(TAG, "opening slide " + (finalI + 1));
-                Toast.makeText(AboutAppActivity.this, "Opening slide " + (finalI + 1), Toast.LENGTH_LONG).show();
+                // the second screen has already been opened, so we start from screen 2
+                Log.d(TAG, "opening screen " + (finalI + 2));
+                // screen 2 is actually index 1 in the array, so we pass finalI + 1, wh
                 new Handler(Looper.getMainLooper()).postDelayed(() -> populateAboutAppDetails(finalI + 1), 5000 + i * 5000);
             }
         }
