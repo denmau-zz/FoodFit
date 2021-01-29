@@ -20,7 +20,6 @@ public class AboutAppActivity extends AppCompatActivity {
     // This activity should display sets of data meant akin to 3 screens
     int currentScreen = 1;
 
-
     // this arrayList contains images and details for each screen
     List<AboutAppModel> aboutAppDetails = new ArrayList<>();
 
@@ -44,7 +43,7 @@ public class AboutAppActivity extends AppCompatActivity {
         String aboutAppTitle2 = "Special Diets / Intolerance";
         String aboutAppTitle3 = "Towards a healthy you!";
         // AboutApp Descriptions
-        String aboutAppDesc1 = "We compute the nutritional information for recipes automatically using a powerful algorithm. With this information, you can find individual recipes or even create entire meal plans that satisfy your users' dietary goals";
+        String aboutAppDesc1 = "We compute the nutritional information for recipes automatically using a powerful algorithm. With this information, you can find individual recipes or even create entire meal plans that satisfy your dietary goals";
         String aboutAppDesc2 = "We automatically analyze recipes to check for ingredients that contain common allergens, such as wheat, dairy, eggs, soy, nuts, etc. We also determine whether a recipe is vegan, vegetarian, Paleo friendly, Whole30 compliant, and more";
         String aboutAppDesc3 = "We are more than just a recipe. We provide solutions to make any food-related vision a reality.";
         // AboutApp Slider Images
@@ -81,7 +80,6 @@ public class AboutAppActivity extends AppCompatActivity {
             }
         }
     }
-
 
     private void populateAboutAppDetails(int currentScreen) {
         aboutAppBanner.setImageResource(aboutAppDetails.get(currentScreen).getAboutAppBanner());
