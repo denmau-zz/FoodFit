@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.denmau.foodfit.model.AboutAppModel;
+import me.denmau.foodfit.ui.login.LoginActivity;
 
 public class AboutAppActivity extends AppCompatActivity {
     /**
@@ -91,28 +92,24 @@ public class AboutAppActivity extends AppCompatActivity {
         mToastRunnable.run();
 
         // when btnSkip is clicked, go to screen 3
-        btnSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                skipButtonClicked = true;
-                // we are actually going to screen 3, but with index 2 from the arrayList
-                updateUI(2);
-            }
-
+        btnSkip.setOnClickListener(v -> {
+            skipButtonClicked = true;
+            // we are actually going to screen 3, but with index 2 from the arrayList
+            updateUI(2);
         });
 
         // when btnNext is clicked, go to next screen
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                skipButtonClicked = true;
-                // if we are in the first screen, go to screen 2
-                if (currentScreen == 0) updateUI(1);
-                    // else if we are in the second screen, go to screen 3
-                else if (currentScreen == 1) updateUI(2);
-                // the skip button is invisible in screen 3, hence it cannot be clicked
-            }
+        btnNext.setOnClickListener(v -> {
+            skipButtonClicked = true;
+            // if we are in the first screen, go to screen 2
+            if (currentScreen == 0) updateUI(1);
+                // else if we are in the second screen, go to screen 3
+            else if (currentScreen == 1) updateUI(2);
+            // the skip button is invisible in screen 3, hence it cannot be clicked
         });
+
+        // when getStarted button is clicked, go to Login screen
+        btnGetStarted.setOnClickListener(v -> startActivity(new Intent(AboutAppActivity.this, LoginActivity.class)));
     }
 
     private Runnable mToastRunnable = new Runnable() {
@@ -147,6 +144,7 @@ public class AboutAppActivity extends AppCompatActivity {
             */
             btnSkip.setVisibility(View.INVISIBLE);
             btnNext.setVisibility(View.INVISIBLE);
+            aboutAppSlider.setVisibility(View.INVISIBLE);
             slideToRight(btnGetStarted);
         } else {
             btnSkip.setVisibility(View.VISIBLE);
