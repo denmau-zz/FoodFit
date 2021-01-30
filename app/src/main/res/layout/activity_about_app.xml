@@ -1,52 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_margin="10dp"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
 
     <ImageView
         android:id="@+id/bannerImage"
         android:layout_width="wrap_content"
         android:layout_height="350dp"
-        app:srcCompat="@drawable/about_app_1"
         android:layout_marginTop="100dp"
-        />
+        app:srcCompat="@drawable/about_app_1" />
 
     <TextView
         android:id="@+id/txtAboutAppTitle"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:layout_below="@id/bannerImage"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/comfortaa"
+        android:text="TextView"
         android:textColor="@color/app_green"
         android:textSize="20sp"
-        android:fontFamily="@font/comfortaa"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtAboutAppDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="15sp"
         android:layout_below="@id/txtAboutAppTitle"
-        android:paddingHorizontal="10dp"
         android:fontFamily="@font/roboto_regular"
+        android:paddingHorizontal="10dp"
+        android:text="TextView"
         android:textColor="@color/black"
-        />
+        android:textSize="15sp" />
 
-    <ImageView
-        android:id="@+id/aboutAppSliderImage"
+    <Button
+        android:id="@+id/btnGetStarted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/about_app_position_1"
-        android:contentDescription="@string/splash_screen_image"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/ConstraintLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="35dp"/>
+        android:layout_marginVertical="10dp"
+        android:backgroundTint="@color/app_green"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingHorizontal="10dp"
+        android:text="@string/get_started"
+        android:textColor="@color/app_blue"
+        android:textStyle="bold"
+        style="@style/Theme.MyApp"
+        android:textSize="15sp"
+        app:cornerRadius="15dp"
+        app:icon="@drawable/ic_baseline_add_24" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            android:text="@string/skip"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/aboutAppSliderImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/btnSkip"
+            android:contentDescription="@string/splash_screen_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnNext"
+            app:layout_constraintStart_toEndOf="@+id/btnSkip"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/about_app_position_1" />
+
+        <TextView
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingStart="0dp"
+            android:paddingEnd="10dp"
+            android:text="@string/next"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </RelativeLayout>

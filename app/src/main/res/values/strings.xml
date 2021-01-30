@@ -2,4 +2,7 @@
     <string name="app_name">Food Fit</string>
     <string name="my_website">www.denmau.me</string>
     <string name="splash_screen_image">splash screen image</string>
+    <string name="next">next</string>
+    <string name="skip">skip</string>
+    <string name="get_started">GET STARTED!</string>
 </resources>

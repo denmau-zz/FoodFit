@@ -1,12 +1,15 @@
 package me.denmau.foodfit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.View;
+import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,9 +19,21 @@ import java.util.List;
 import me.denmau.foodfit.model.AboutAppModel;
 
 public class AboutAppActivity extends AppCompatActivity {
+    /**
+     * Created by Dennis Kamau on 29/01/21.
+     * website: https://www.denmau.me
+     */
+
     private static final String TAG = "AboutAppActivity";
-    // This activity should display sets of data meant akin to 3 screens
-    int currentScreen = 1;
+    // This activity should display sets of data that illustrate 3 screens, each showing what the app is about
+
+    int currentScreen = -1;
+    private final Handler handler = new Handler(Looper.getMainLooper());
+    /*
+    if user clicked skip button in screen 1 and goes to screen 2
+    prevent handler.postDelayed from setting content to back to screen 2
+   */
+    boolean skipButtonClicked = false;
 
     // this arrayList contains images and details for each screen
     List<AboutAppModel> aboutAppDetails = new ArrayList<>();
@@ -28,6 +43,9 @@ public class AboutAppActivity extends AppCompatActivity {
     TextView aboutAppTitle;
     TextView aboutAppDesc;
     ImageView aboutAppSlider;
+    TextView btnSkip;
+    TextView btnNext;
+    Button btnGetStarted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,42 +69,105 @@ public class AboutAppActivity extends AppCompatActivity {
         int aboutAppSlider2 = R.drawable.about_app_position_2;
         int aboutAppSlider3 = R.drawable.about_app_position_3;
 
+        // Load the array List with about App Details
+        aboutAppDetails.add(new AboutAppModel(aboutAppImage1, aboutAppTitle1, aboutAppDesc1, aboutAppSlider1));
+        aboutAppDetails.add(new AboutAppModel(aboutAppImage2, aboutAppTitle2, aboutAppDesc2, aboutAppSlider2));
+        aboutAppDetails.add(new AboutAppModel(aboutAppImage3, aboutAppTitle3, aboutAppDesc3, aboutAppSlider3));
+
         // identify views
         aboutAppBanner = findViewById(R.id.bannerImage);
         aboutAppTitle = findViewById(R.id.txtAboutAppTitle);
         aboutAppDesc = findViewById(R.id.txtAboutAppDesc);
         aboutAppSlider = findViewById(R.id.aboutAppSliderImage);
-
-        // Load the array List with about App Details
-        aboutAppDetails.add(new AboutAppModel(aboutAppImage1, aboutAppTitle1, aboutAppDesc1, aboutAppSlider1));
-        aboutAppDetails.add(new AboutAppModel(aboutAppImage2, aboutAppTitle2, aboutAppDesc2, aboutAppSlider2));
-        aboutAppDetails.add(new AboutAppModel(aboutAppImage3, aboutAppTitle3, aboutAppDesc3, aboutAppSlider3));
+        btnSkip = findViewById(R.id.btnSkip);
+        btnNext = findViewById(R.id.btnNext);
+        btnGetStarted = findViewById(R.id.btnGetStarted);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        // the first screen (screen 1) is at index zero in the aboutAppDetails arrayList, so we pass currentScreen-1
-        populateAboutAppDetails((currentScreen - 1));
 
-        // Display app details for the second and third screen, each for 5 seconds
-        for (int i = 0; i <= 1; i++) {
-            int finalI = i;
-            if (finalI < (aboutAppDetails.size() - 1)) {
-                // the second screen has already been opened, so we start from screen 2
-                Log.d(TAG, "opening screen " + (finalI + 2));
-                // screen 2 is actually index 1 in the array, so we pass finalI + 1, wh
-                new Handler(Looper.getMainLooper()).postDelayed(() -> populateAboutAppDetails(finalI + 1), 5000 + i * 5000);
+        mToastRunnable.run();
+
+        // when btnSkip is clicked, go to screen 3
+        btnSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                skipButtonClicked = true;
+                // we are actually going to screen 3, but with index 2 from the arrayList
+                updateUI(2);
             }
+
+        });
+
+        // when btnNext is clicked, go to next screen
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                skipButtonClicked = true;
+                // if we are in the first screen, go to screen 2
+                if (currentScreen == 0) updateUI(1);
+                    // else if we are in the second screen, go to screen 3
+                else if (currentScreen == 1) updateUI(2);
+                // the skip button is invisible in screen 3, hence it cannot be clicked
+            }
+        });
+    }
+
+    private Runnable mToastRunnable = new Runnable() {
+        @Override
+        public void run() {
+            // as long as we are not viewing the last screen, go to next screen
+            if (currentScreen == 2) {
+                handler.removeCallbacks(mToastRunnable);
+            } else updateUI((currentScreen + 1));
+            handler.postDelayed(this, 3000);
+        }
+    };
+
+    private void updateUI(int goToScreen) {
+        // prevent the unlikely event of an indexOutOfBoundsException
+        if (goToScreen > (aboutAppDetails.size() - 1)) {
+            Log.e(TAG, "Trying to access a screen that is not available, we can only access screens 1 through 3, we cannot access screen " + goToScreen);
+            return;
+        }
+
+        aboutAppBanner.setImageResource(aboutAppDetails.get(goToScreen).getAboutAppBanner());
+        aboutAppTitle.setText(aboutAppDetails.get(goToScreen).getAboutAppTitle());
+        aboutAppDesc.setText(aboutAppDetails.get(goToScreen).getAboutAppDesc());
+        aboutAppSlider.setImageResource(aboutAppDetails.get(goToScreen).getAboutAppSliderImage());
+        currentScreen = goToScreen;
+
+        // if our view displays screen 3 (the last screen), make skip and next buttons invisible, but getStarted should be visible
+        if (currentScreen == 2) {
+            /*
+             I chose view.Invisible instead of view.gone, so that the button(although invisible,
+             takes up space for layout purposes
+            */
+            btnSkip.setVisibility(View.INVISIBLE);
+            btnNext.setVisibility(View.INVISIBLE);
+            slideToRight(btnGetStarted);
+        } else {
+            btnSkip.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.VISIBLE);
+            btnGetStarted.setVisibility(View.INVISIBLE);
         }
     }
 
-    private void populateAboutAppDetails(int currentScreen) {
-        aboutAppBanner.setImageResource(aboutAppDetails.get(currentScreen).getAboutAppBanner());
-        aboutAppTitle.setText(aboutAppDetails.get(currentScreen).getAboutAppTitle());
-        aboutAppDesc.setText(aboutAppDetails.get(currentScreen).getAboutAppDesc());
-        aboutAppSlider.setImageResource(aboutAppDetails.get(currentScreen).getAboutAppSliderImage());
+    // To animate view slide out from left to right
+    public void slideToRight(View view) {
+        TranslateAnimation animate = new TranslateAnimation(-view.getWidth(), 0, 0, 0);
+        animate.setDuration(500);
+        animate.setFillAfter(true);
+        view.startAnimation(animate);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // Go back to splash screen
+        startActivity(new Intent(AboutAppActivity.this, MainActivity.class));
+    }
 }
+
