@@ -16,4 +16,5 @@
     <string name="forgotPassword">forgot password?</string>
     <string name="create_account">Create Account</string>
     <string name="repeat_password">Repeat Password</string>
+    <string name="haveAccount">I HAVE AN ACCOUNT</string>
 </resources>
