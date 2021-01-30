@@ -17,7 +17,7 @@ The app renders data in JSON(from the API) into card views placed in recycler vi
 ## I created this app to demonstrate skills in:
 * Firebase Login and Authentication
 * working with APIs
-* Layouting
+* Layout
 * Database - SQLite
 * Software Development Life cycle
 <br/>
