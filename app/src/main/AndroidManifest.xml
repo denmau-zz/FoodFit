@@ -9,9 +9,9 @@
         android:roundIcon="@drawable/food_fit_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodFit">
+        <activity android:name=".RegisterActivity" />
         <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:name="LoginActivity"/>
         <activity android:name=".AboutAppActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.denmau.foodfit.model.AboutAppModel;
-import me.denmau.foodfit.ui.login.LoginActivity;
 
 public class AboutAppActivity extends AppCompatActivity {
     /**
@@ -40,13 +39,13 @@ public class AboutAppActivity extends AppCompatActivity {
     List<AboutAppModel> aboutAppDetails = new ArrayList<>();
 
     // declare views
-    ImageView aboutAppBanner;
-    TextView aboutAppTitle;
-    TextView aboutAppDesc;
-    ImageView aboutAppSlider;
-    TextView btnSkip;
-    TextView btnNext;
-    Button btnGetStarted;
+    private ImageView aboutAppBanner;
+    private TextView aboutAppTitle;
+    private TextView aboutAppDesc;
+    private ImageView aboutAppSlider;
+    private TextView btnSkip;
+    private TextView btnNext;
+    private Button btnGetStarted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +70,9 @@ public class AboutAppActivity extends AppCompatActivity {
         int aboutAppSlider3 = R.drawable.about_app_position_3;
 
         // Load the array List with about App Details
-        aboutAppDetails.add(new AboutAppModel(aboutAppImage1, aboutAppTitle1, aboutAppDesc1, aboutAppSlider1));
-        aboutAppDetails.add(new AboutAppModel(aboutAppImage2, aboutAppTitle2, aboutAppDesc2, aboutAppSlider2));
-        aboutAppDetails.add(new AboutAppModel(aboutAppImage3, aboutAppTitle3, aboutAppDesc3, aboutAppSlider3));
+        aboutAppDetails.add(new me.denmau.foodfit.model.AboutAppModel(aboutAppImage1, aboutAppTitle1, aboutAppDesc1, aboutAppSlider1));
+        aboutAppDetails.add(new me.denmau.foodfit.model.AboutAppModel(aboutAppImage2, aboutAppTitle2, aboutAppDesc2, aboutAppSlider2));
+        aboutAppDetails.add(new me.denmau.foodfit.model.AboutAppModel(aboutAppImage3, aboutAppTitle3, aboutAppDesc3, aboutAppSlider3));
 
         // identify views
         aboutAppBanner = findViewById(R.id.bannerImage);
