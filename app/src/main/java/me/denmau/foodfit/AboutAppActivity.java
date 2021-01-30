@@ -150,7 +150,7 @@ public class AboutAppActivity extends AppCompatActivity {
             slideToRight(btnGetStarted);
         } else {
             btnSkip.setVisibility(View.VISIBLE);
-            btnNext.setVisibility(View.VISIBLE);re
+            btnNext.setVisibility(View.VISIBLE);
             btnGetStarted.setVisibility(View.INVISIBLE);
         }
     }
