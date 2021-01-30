@@ -97,7 +97,6 @@
         android:id="@+id/btnCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:text="@string/create_account"
         app:layout_constraintBottom_toTopOf="@+id/btnIHaveAccount"
         app:layout_constraintEnd_toEndOf="parent"
