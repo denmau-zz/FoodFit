@@ -88,7 +88,7 @@ public class AboutAppActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        mToastRunnable.run();
+        toastRunnable.run();
 
         // when btnSkip is clicked, go to screen 3
         btnSkip.setOnClickListener(v -> {
@@ -108,15 +108,15 @@ public class AboutAppActivity extends AppCompatActivity {
         });
 
         // when getStarted button is clicked, go to Login screen
-        btnGetStarted.setOnClickListener(v -> startActivity(new Intent(AboutAppActivity.this, LoginActivity.class)));
+        btnGetStarted.setOnClickListener(v -> startActivity(new Intent(AboutAppActivity.this, RegisterActivity.class)));
     }
 
-    private Runnable mToastRunnable = new Runnable() {
+    private final Runnable toastRunnable = new Runnable() {
         @Override
         public void run() {
             // as long as we are not viewing the last screen, go to next screen
             if (currentScreen == 2) {
-                handler.removeCallbacks(mToastRunnable);
+                handler.removeCallbacks(toastRunnable);
             } else updateUI((currentScreen + 1));
             handler.postDelayed(this, 3000);
         }

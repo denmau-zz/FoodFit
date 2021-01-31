@@ -2,6 +2,7 @@ package me.denmau.foodfit;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -9,6 +10,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
+
+    String TAG = "RegisterActivity";
 
     Button btnHaveAccount;
     Button btnCreateAccount;
@@ -37,12 +40,18 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         btnCreateAccount.setOnClickListener(v -> {
-
             // Check if both passwords match
-            if ( (passwordField.getText() != repeatPasswordField.getText()) || (passwordField.isEmpty() || repeatPasswordField.isEmpty()) ) {
-                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-            }
+            try {
+                if (!passwordField.getText().toString().equals(repeatPasswordField.getText().toString())) {
 
+                    Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                }
+                // look for exceptions such as accessing a null object
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e(TAG, e.toString());
+                Toast.makeText(this, "Please check your passwords again", Toast.LENGTH_SHORT).show();
+            }
         });
 
     }
