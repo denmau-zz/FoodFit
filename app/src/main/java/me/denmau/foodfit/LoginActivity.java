@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnForgotPass.setOnClickListener(this);
         btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(this);
-        emailField = (EditText) findViewById(R.id.login_username);
+        emailField = (EditText) findViewById(R.id.reset_email);
         passwordField = (EditText) findViewById(R.id.login_password);
         // instantiate Firebase Authentication
         mAuth = FirebaseAuth.getInstance();
@@ -91,9 +91,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                         signInProgress.dismiss();
                                         // Sign in success, update UI with the signed-in user's information
                                         Log.d(TAG, "signInWithEmail:success");
-                                        new SweetAlertDialog(LoginActivity.this)
+                                        new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.SUCCESS_TYPE)
                                                 .setTitleText("Sign in Successful")
-                                                .show();
+                                                .setCanceledOnTouchOutside(true);
+
                                         FirebaseUser user = mAuth.getCurrentUser();
                                     } else {
                                         signInProgress.dismiss();
