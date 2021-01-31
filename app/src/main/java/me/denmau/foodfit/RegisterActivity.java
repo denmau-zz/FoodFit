@@ -78,6 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
         createAccountProgress.setCancelable(false);
         createAccountProgress.show();
         // create user
+        Log.w(TAG, "Creating account for " + email + " password: " + password);
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override

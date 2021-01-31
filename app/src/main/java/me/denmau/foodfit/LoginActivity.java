@@ -75,12 +75,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.btnLogin:
+                SweetAlertDialog signInProgress = new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.PROGRESS_TYPE);
+                signInProgress.setTitleText("Signing in");
+                signInProgress.setCancelable(false);
+                signInProgress.show();
                 // Firebase Sign in
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    signInProgress.dismiss();
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "signInWithEmail:success");
                                     new SweetAlertDialog(LoginActivity.this)
@@ -88,6 +93,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                             .show();
                                     FirebaseUser user = mAuth.getCurrentUser();
                                 } else {
+                                    signInProgress.dismiss();
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "signInWithEmail:failure", task.getException());
                                     new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
@@ -98,7 +104,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             }
                         });
                 break;
-
         }
     }
 
