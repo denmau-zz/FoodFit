@@ -19,7 +19,7 @@ import java.util.List;
 import me.denmau.foodfit.model.AboutAppModel;
 
 public class AboutAppActivity extends AppCompatActivity {
-    /**
+    /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
      */

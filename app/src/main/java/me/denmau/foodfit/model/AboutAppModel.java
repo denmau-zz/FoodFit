@@ -2,6 +2,11 @@ package me.denmau.foodfit.model;
 
 public class AboutAppModel {
 
+    /*
+     * Created by Dennis Kamau
+     * website: https://www.denmau.me
+     */
+
     // Member Variables
     private final int aboutAppBanner;
     private final String aboutAppTitle;

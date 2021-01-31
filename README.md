@@ -16,7 +16,8 @@ The app renders data in JSON(from the API) into card views placed in recycler vi
 
 ## I created this app to demonstrate skills in:
 * Firebase Login and Authentication
-* working with APIs
+* working with - Spoonacular Food API
+* working with third party libraries: 
 * Layout
 * Database - SQLite
 * Software Development Life cycle

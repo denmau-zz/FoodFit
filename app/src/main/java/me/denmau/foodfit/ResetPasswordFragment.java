@@ -14,6 +14,11 @@ import androidx.fragment.app.Fragment;
 
 public class ResetPasswordFragment extends Fragment {
 
+    /*
+     * Created by Dennis Kamau
+     * website: https://www.denmau.me
+     */
+
     public ResetPasswordFragment() {
         // Required empty public constructor
     }

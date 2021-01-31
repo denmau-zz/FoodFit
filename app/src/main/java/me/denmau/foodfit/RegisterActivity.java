@@ -21,7 +21,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    /**
+    /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
      */

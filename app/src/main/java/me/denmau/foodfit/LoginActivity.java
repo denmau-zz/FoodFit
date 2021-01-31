@@ -24,7 +24,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    /**
+    /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
      */

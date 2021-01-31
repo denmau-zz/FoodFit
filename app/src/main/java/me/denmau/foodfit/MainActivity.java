@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    /**
+    /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
      */

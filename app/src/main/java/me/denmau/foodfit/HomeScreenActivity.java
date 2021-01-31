@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 public class HomeScreenActivity extends AppCompatActivity {
 
-    /**
+    /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
      */
