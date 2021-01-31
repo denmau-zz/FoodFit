@@ -19,7 +19,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Button btnRegister;
     Button btnForgotPass;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

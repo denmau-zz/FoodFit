@@ -1,12 +1,12 @@
 package me.denmau.foodfit;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,10 +38,11 @@ public class MainActivity extends AppCompatActivity {
          else show about app screen, that leads to login/ create account
         */
 
-        if (mAuth != null) {
-            Toast.makeText(this, "Welcome, You are already signed in", Toast.LENGTH_LONG).show();
-            FirebaseUser currentUser = mAuth.getCurrentUser();
-        }
+//        if (mAuth != null) {
+//            Toast.makeText(this, "Welcome, You are already signed in", Toast.LENGTH_LONG).show();
+//            FirebaseUser currentUser = mAuth.getCurrentUser();
+//            openHomeScreenActivity(currentUser);
+//        }
 
         /*
          Open about app screen after few seconds
@@ -60,6 +61,16 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, AboutAppActivity.class);
                 startActivity(intent);
             }
+        }, DELAY);
+    }
+
+    private void openHomeScreenActivity(FirebaseUser currentUser) {
+        int DELAY = 3000;
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
+            intent.putExtra("currentUser", currentUser);
+            startActivity(intent);
         }, DELAY);
     }
 }
