@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "627827353094",
+    "project_id": "food-fit-254",
+    "storage_bucket": "food-fit-254.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627827353094:android:78bf72b6071a7c661c4587",
+        "android_client_info": {
+          "package_name": "me.denmau.foodfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "627827353094-tbek2qrbjl701p71qv33rlum9n3au3i3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9hCzRFVkPcQQ0E7YlSkfW3tKhD7zBwQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "627827353094-tbek2qrbjl701p71qv33rlum9n3au3i3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

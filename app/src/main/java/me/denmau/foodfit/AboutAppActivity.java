@@ -20,7 +20,7 @@ import me.denmau.foodfit.model.AboutAppModel;
 
 public class AboutAppActivity extends AppCompatActivity {
     /**
-     * Created by Dennis Kamau on 29/01/21.
+     * Created by Dennis Kamau
      * website: https://www.denmau.me
      */
 
