@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
+            android:id="@+id/login_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="@string/prompt_email"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/username_label">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password"
+            android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="@string/prompt_password"

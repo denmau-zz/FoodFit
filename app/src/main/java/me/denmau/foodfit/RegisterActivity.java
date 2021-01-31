@@ -43,9 +43,9 @@ public class RegisterActivity extends AppCompatActivity {
         // instantiate views
         btnHaveAccount = findViewById(R.id.btnIHaveAccount);
         btnCreateAccount = findViewById(R.id.btnCreateAccount);
-        passwordField = (EditText) findViewById(R.id.password);
+        passwordField = (EditText) findViewById(R.id.login_password);
         repeatPasswordField = findViewById(R.id.repeat_password);
-        emailField = (EditText) findViewById(R.id.username);
+        emailField = (EditText) findViewById(R.id.login_username);
 
         mAuth = FirebaseAuth.getInstance();
     }

@@ -2,7 +2,9 @@ package me.denmau.foodfit;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,10 +34,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth mAuth;
     private String TAG = "LoginActivity";
     // declare views
-    Button btnRegister, btnForgotPass;
+    Button btnRegister, btnForgotPass, btnLogin;
     EditText emailField, passwordField;
 
-    String email, password;
+    String capturedEmail, capturedPassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,19 +49,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnRegister.setOnClickListener(this);
         btnForgotPass = findViewById(R.id.forgotPass);
         btnForgotPass.setOnClickListener(this);
-        emailField = (EditText) findViewById(R.id.username);
-        passwordField = (EditText) findViewById(R.id.password);
+        btnLogin = findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(this);
+        emailField = (EditText) findViewById(R.id.login_username);
+        passwordField = (EditText) findViewById(R.id.login_password);
+        // instantiate Firebase Authentication
         mAuth = FirebaseAuth.getInstance();
-
-        email = emailField.getText().toString().trim();
-        password = passwordField.getText().toString().trim();
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
 
     }
 
@@ -75,34 +75,38 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.btnLogin:
-                SweetAlertDialog signInProgress = new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.PROGRESS_TYPE);
-                signInProgress.setTitleText("Signing in");
-                signInProgress.setCancelable(false);
-                signInProgress.show();
-                // Firebase Sign in
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    signInProgress.dismiss();
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Log.d(TAG, "signInWithEmail:success");
-                                    new SweetAlertDialog(LoginActivity.this)
-                                            .setTitleText("Sign in Successful")
-                                            .show();
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                } else {
-                                    signInProgress.dismiss();
-                                    // If sign in fails, display a message to the user.
-                                    Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                    new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
-                                            .setTitleText("Oops...")
-                                            .setContentText("Authentication Failed")
-                                            .show();
+                capturedEmail = emailField.getText().toString().trim();
+                capturedPassword = passwordField.getText().toString().trim();
+                if (passwordIsNotNullAndEmailIsValid(capturedEmail, capturedPassword)) {
+                    SweetAlertDialog signInProgress = new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.PROGRESS_TYPE);
+                    signInProgress.setTitleText("Signing in");
+                    signInProgress.setCancelable(false);
+                    signInProgress.show();
+                    // Firebase Sign in
+                    mAuth.signInWithEmailAndPassword(capturedEmail, capturedPassword)
+                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        signInProgress.dismiss();
+                                        // Sign in success, update UI with the signed-in user's information
+                                        Log.d(TAG, "signInWithEmail:success");
+                                        new SweetAlertDialog(LoginActivity.this)
+                                                .setTitleText("Sign in Successful")
+                                                .show();
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                    } else {
+                                        signInProgress.dismiss();
+                                        // If sign in fails, display a message to the user.
+                                        Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                        new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                                .setTitleText("Oops...")
+                                                .setContentText("Authentication Failed")
+                                                .show();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }
                 break;
         }
     }
@@ -125,4 +129,39 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    private boolean passwordIsNotNullAndEmailIsValid(String capturedEmail, String capturedPassword) {
+        // returns true if password is not null and email is valid
+        if (TextUtils.isEmpty(capturedEmail)) {
+            new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText("enter your email")
+                    .show();
+            return false;
+        }
+
+        if (TextUtils.isEmpty(capturedPassword)) {
+            new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText("enter password")
+                    .show();
+            return false;
+        }
+
+        if (capturedPassword.length() < 6) {
+            new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText("Your password must have at least 6 characters")
+                    .show();
+            return false;
+        }
+
+        /*
+         One line solution from @AdamvandenHoven
+        https://stackoverflow.com/questions/1819142/how-should-i-validate-an-e-mail-address
+        */
+        boolean emailIsValid = !TextUtils.isEmpty(capturedEmail) && Patterns.EMAIL_ADDRESS.matcher(capturedEmail).matches();
+        if (emailIsValid == false) {
+            new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText("invalid email")
+                    .show();
+        }
+        return emailIsValid;
+    }
 }
