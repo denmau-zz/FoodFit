@@ -91,11 +91,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                         signInProgress.dismiss();
                                         // Sign in success, update UI with the signed-in user's information
                                         Log.d(TAG, "signInWithEmail:success");
-                                        new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.SUCCESS_TYPE)
-                                                .setTitleText("Sign in Successful")
-                                                .setCanceledOnTouchOutside(true);
-
+                                        SweetAlertDialog signInSuccessDialog = new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.SUCCESS_TYPE);
+                                        signInSuccessDialog.setTitleText("Sign in Successful");
+                                        signInSuccessDialog.setCanceledOnTouchOutside(true);
+                                        signInSuccessDialog.show();
                                         FirebaseUser user = mAuth.getCurrentUser();
+                                        startActivity(new Intent(LoginActivity.this, HomeScreenActivity.class).putExtra("LogedInUser", user));
                                     } else {
                                         signInProgress.dismiss();
                                         // If sign in fails, display a message to the user.
@@ -125,7 +126,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //fragmentTransaction.add(R.id.fragment_container, resetPasswordFrag).addToBackStack(null).commit();\
         fragmentTransaction.add(R.id.fragment_container, resetPasswordFrag).addToBackStack(null).commit();
 
-        Log.d(TAG, "reset password fragment has been opened");
         Toast.makeText(this, "reset password fragment has been opened", Toast.LENGTH_SHORT).show();
 
     }
