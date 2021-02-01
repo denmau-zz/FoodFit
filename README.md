@@ -10,7 +10,7 @@ The app renders data in JSON(from the API) into card views placed in recycler vi
 - [x] Strategy
 - [x] Analysis and Planning
 - [x] UI / UX Design
-- [ ] App Development (<b>in progress</b>)
+- [ ] <b>App Development</b>
 - [ ] Testing
 
 
