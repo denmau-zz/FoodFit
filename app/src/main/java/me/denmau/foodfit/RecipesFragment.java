@@ -20,15 +20,12 @@ public class RecipesFragment extends Fragment {
     }
 
     public static RecipesFragment newInstance(String param1, String param2) {
-        RecipesFragment fragment = new RecipesFragment();
-
-        return fragment;
+        return new RecipesFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override

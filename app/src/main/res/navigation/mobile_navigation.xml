@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="me.denmau.foodfit.ui.dashboard.DashboardFragment"
+        android:name="me.denmau.foodfit.ui.search.SearchFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_random"
-        android:name="me.denmau.foodfit.ui.notifications.NotificationsFragment"
+        android:name="me.denmau.foodfit.ui.random.RandomFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_random" />
 </navigation>

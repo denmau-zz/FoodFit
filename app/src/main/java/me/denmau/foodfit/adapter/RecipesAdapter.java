@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -26,29 +27,29 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
 
 
     /* inner class : RecipeViewHolder */
-            public class RecipeViewHolder extends RecyclerView.ViewHolder {
+    public static class RecipeViewHolder extends RecyclerView.ViewHolder {
 
-                // declare views
-                public ImageView recipeImage;
-                public TextView recipeTitle;
-                public TextView prepTime;
-                public TextView foodFitScore;
-                public TextView healthScore;
-                public TextView dishType;
+        // declare views
+        public ImageView recipeImage;
+        public TextView recipeTitle;
+        public TextView prepTime;
+        public TextView foodFitScore;
+        public TextView healthScore;
+        public TextView dishType;
 
-                // Constructor to this inner class
-                public RecipeViewHolder(@NonNull View itemView) {
-                    super(itemView);
+        // Constructor to this inner class
+        public RecipeViewHolder(@NonNull View itemView) {
+            super(itemView);
 
-                    // assign views
-                    recipeImage = itemView.findViewById(R.id.recipeImage);
-                    recipeTitle = itemView.findViewById(R.id.recipeTitle);
-                    prepTime = itemView.findViewById(R.id.prep_time);
-                    foodFitScore = itemView.findViewById(R.id.foodFitScore);
-                    healthScore = itemView.findViewById(R.id.health_score);
-                    dishType = itemView.findViewById(R.id.dish_type);
-                }
-            }
+            // assign views
+            recipeImage = itemView.findViewById(R.id.recipeImage);
+            recipeTitle = itemView.findViewById(R.id.recipeTitle);
+            prepTime = itemView.findViewById(R.id.prep_time);
+            foodFitScore = itemView.findViewById(R.id.foodFitScore);
+            healthScore = itemView.findViewById(R.id.health_score);
+            dishType = itemView.findViewById(R.id.dish_type);
+        }
+    }
     /* out of inner class : Viewholder */
 
 
