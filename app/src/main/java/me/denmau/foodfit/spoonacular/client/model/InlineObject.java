@@ -13,82 +13,78 @@
 
 package me.denmau.foodfit.spoonacular.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
+
+import java.util.Objects;
+
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * InlineObject
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-31T13:52:34.035+01:00[Europe/Berlin]")
 public class InlineObject {
-  public static final String SERIALIZED_NAME_INGREDIENT_LIST = "ingredientList";
-  @SerializedName(SERIALIZED_NAME_INGREDIENT_LIST)
-  private String ingredientList;
+    public static final String SERIALIZED_NAME_INGREDIENT_LIST = "ingredientList";
+    @SerializedName(SERIALIZED_NAME_INGREDIENT_LIST)
+    private String ingredientList;
 
-  public InlineObject ingredientList(String ingredientList) {
-    this.ingredientList = ingredientList;
-    return this;
-  }
-
-   /**
-   * The ingredient list of the recipe, one ingredient per line.
-   * @return ingredientList
-  **/
-  @ApiModelProperty(example = "1 lemon", required = true, value = "The ingredient list of the recipe, one ingredient per line.")
-  public String getIngredientList() {
-    return ingredientList;
-  }
-
-  public void setIngredientList(String ingredientList) {
-    this.ingredientList = ingredientList;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public InlineObject ingredientList(String ingredientList) {
+        this.ingredientList = ingredientList;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The ingredient list of the recipe, one ingredient per line.
+     *
+     * @return ingredientList
+     **/
+    @ApiModelProperty(example = "1 lemon", required = true, value = "The ingredient list of the recipe, one ingredient per line.")
+    public String getIngredientList() {
+        return ingredientList;
     }
-    InlineObject inlineObject = (InlineObject) o;
-    return Objects.equals(this.ingredientList, inlineObject.ingredientList);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(ingredientList);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class InlineObject {\n");
-    sb.append("    ingredientList: ").append(toIndentedString(ingredientList)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setIngredientList(String ingredientList) {
+        this.ingredientList = ingredientList;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        InlineObject inlineObject = (InlineObject) o;
+        return Objects.equals(this.ingredientList, inlineObject.ingredientList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ingredientList);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class InlineObject {\n");
+        sb.append("    ingredientList: ").append(toIndentedString(ingredientList)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 
