@@ -9,5 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="app_green">#2CD18A</color>
     <color name="app_blue">#6200EE</color>
-
+    <color name="card_colors">#FF8450</color>
 </resources>

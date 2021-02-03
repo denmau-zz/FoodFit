@@ -11,15 +11,13 @@
         android:roundIcon="@drawable/app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodFit">
-        <activity
-            android:name=".NavDrawerActivity"
-            android:label="@string/title_activity_nav_drawer"
-            android:theme="@style/Theme.FoodFit.NoActionBar">
-        </activity>
+        <activity android:name=".recipedetails.RecipeDetailsActivity"></activity>
+        <activity android:name=".bottom_nav_views.RandomActivity" />
+        <activity android:name=".bottom_nav_views.SearchActivity" />
         <activity
             android:name=".BottomNav"
             android:label="@string/title_activity_bottom_nav" />
-        <activity android:name=".HomeScreenActivity" />
+        <activity android:name=".bottom_nav_views.HomeScreenActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".AboutAppActivity" />

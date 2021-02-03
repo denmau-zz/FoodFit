@@ -1,11 +1,13 @@
 package me.denmau.foodfit.reciperecycler;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import me.denmau.foodfit.R;
+import me.denmau.foodfit.recipedetails.RecipeDetailsActivity;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeViewHolder> {
 
@@ -69,7 +72,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
 
         // Constructor to this inner class
         public RecipeViewHolder(@NonNull View itemView) {
-
             super(itemView);
             // assign views
             recipeImage = itemView.findViewById(R.id.recipeImage);
@@ -86,7 +88,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
                 @Override
                 public void onClick(View view) {
                     // When a recipe Card is clicked
-                    Log.i(TAG, "You clicked on recipe card #" + getAdapterPosition());
+                    Log.i(TAG, "clicked on recipe card #" + getAdapterPosition());
+                    Toast.makeText(view.getContext(), "You clicked on recipe card #" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(view.getContext(), RecipeDetailsActivity.class);
+                    intent.putExtra("positionInArrayList", getAdapterPosition());
+                    view.getContext().startActivity(intent);
                 }
             });
         }

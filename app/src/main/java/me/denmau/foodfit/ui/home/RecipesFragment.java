@@ -40,7 +40,7 @@ public class RecipesFragment extends Fragment {
         int numberOfColumns = 2;
 
         RecyclerView mRecyclerView = view.findViewById(R.id.recyclerView);
-        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(false);
 
         mRecyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), numberOfColumns));
         recipesAdapter = new RecipesAdapter(recipes);

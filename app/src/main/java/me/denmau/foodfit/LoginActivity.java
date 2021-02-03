@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import me.denmau.foodfit.bottom_nav_views.HomeScreenActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
