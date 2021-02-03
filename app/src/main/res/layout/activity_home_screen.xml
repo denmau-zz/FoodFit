@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".HomeScreenActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="135dp"
-        android:layout_height="130dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275"
-        app:srcCompat="@drawable/app_logo" />
-
     <FrameLayout
         android:id="@+id/fragment_container"
         android:name="HomeFragment"
@@ -33,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/app_green"
-        app:itemIconTint="@color/white"
+        app:itemIconTint="@color/app_blue"
         app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
