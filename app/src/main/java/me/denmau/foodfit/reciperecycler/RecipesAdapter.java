@@ -1,22 +1,18 @@
 package me.denmau.foodfit.reciperecycler;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
-import me.denmau.foodfit.MainActivity;
 import me.denmau.foodfit.R;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeViewHolder> {
@@ -38,7 +34,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
     @NonNull
     @Override
     public RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new RecipeViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_item, parent, false));
+        return new RecipeViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_item, parent, false));
     }
 
     @Override
@@ -48,7 +44,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
         // Bind the Data Received to the Views
         holder.recipeImage.setImageResource(currentItem.getRecipeImage());
         holder.recipeTitle.setText(currentItem.getRecipeTitle());
-        holder.prepTime.setText(String.valueOf(currentItem.getPrepTime()));
+        holder.prepTime.setText(String.valueOf(currentItem.getPrepTime()) + "min");
         holder.healthScore.setText(String.valueOf(currentItem.getHealthScore()));
         holder.foodFitScore.setText(String.valueOf(currentItem.getFoodFitScore()));
         holder.dishType.setText(currentItem.getDishType());

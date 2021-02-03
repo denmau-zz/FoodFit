@@ -8,10 +8,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 import me.denmau.foodfit.reciperecycler.RecipeModel;
-import me.denmau.foodfit.reciperecycler.RecipesFragment;
+import me.denmau.foodfit.ui.home.RecipesFragment;
 
 public class HomeScreenActivity extends AppCompatActivity {
 
@@ -23,11 +25,13 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     private ArrayList<RecipeModel> recipes = new ArrayList<>();
     private final String TAG = "HomeScreenActivity";
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
     }
 
     @Override

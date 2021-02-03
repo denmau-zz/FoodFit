@@ -1,4 +1,4 @@
-package me.denmau.foodfit.reciperecycler;
+package me.denmau.foodfit.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import me.denmau.foodfit.R;
+import me.denmau.foodfit.reciperecycler.RecipeModel;
+import me.denmau.foodfit.reciperecycler.RecipesAdapter;
 
 public class RecipesFragment extends Fragment {
     private final String TAG = "RecipesFragment";

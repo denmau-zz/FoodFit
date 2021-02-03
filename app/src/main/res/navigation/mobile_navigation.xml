@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="me.denmau.foodfit.ui.home.HomeFragment"
+        android:name="me.denmau.foodfit.ui.home.RecipesFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
@@ -20,6 +20,6 @@
     <fragment
         android:id="@+id/navigation_random"
         android:name="me.denmau.foodfit.ui.random.RandomFragment"
-        android:label="@string/title_notifications"
+        android:label="Search"
         tools:layout="@layout/fragment_random" />
 </navigation>

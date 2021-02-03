@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    app:cardCornerRadius="20dp"
     android:backgroundTint="#dadef7"
-    android:id="@+id/cardView">
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -17,20 +15,21 @@
 
         <ImageView
             android:id="@+id/recipeImage"
-            android:layout_width="103dp"
-            android:layout_height="86dp"
+            android:layout_width="113dp"
+            android:layout_height="114dp"
+            android:layout_marginTop="4dp"
             android:contentDescription="@string/recipe_image"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recipeTitle"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/food_fit_logo" />
 
         <TextView
             android:id="@+id/recipeTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/comfortaa"
-            android:paddingStart="10dp"
-            android:paddingTop="10dp"
             android:text="Fried Eggs"
             android:textAlignment="center"
             android:textColor="@color/app_blue"
@@ -38,30 +37,32 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/recipeImage" />
 
         <TextView
             android:id="@+id/prep_time_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="⌚(Min)"
+            android:text="⌚ "
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/recipeImage"
-            app:layout_constraintTop_toBottomOf="@+id/dish_type" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foofit_score_label" />
 
         <TextView
             android:id="@+id/prep_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/roboto_regular"
             android:text="Prep Time"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/prep_time_label"
-            app:layout_constraintTop_toBottomOf="@+id/dish_type" />
+            app:layout_constraintTop_toBottomOf="@+id/foofit_score_label" />
 
         <TextView
             android:id="@+id/health_score_label"
@@ -70,62 +71,63 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Health Score"
+            android:text="👩‍⚕Health:"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/health_score"
-            app:layout_constraintTop_toBottomOf="@+id/prep_time" />
+            app:layout_constraintStart_toEndOf="@+id/prep_time"
+            app:layout_constraintTop_toBottomOf="@+id/foodFitScore" />
 
-        <TextView
-            android:id="@+id/dish_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="dessert"
-            android:textColor="@color/app_green"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/recipeImage"
-            app:layout_constraintTop_toBottomOf="@+id/recipeTitle" />
-
-        <TextView
-            android:id="@+id/foofit_score_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_regular"
-            android:text="⚖Food Fit Score"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recipeImage" />
-
-
-        <TextView
-            android:id="@+id/foodFitScore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="score"
-            android:textColor="@color/app_green"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/foofit_score_label"
-            app:layout_constraintTop_toBottomOf="@+id/recipeImage" />
 
         <TextView
             android:id="@+id/health_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_regular"
-            android:text="👩‍⚕"
             android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="health"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/recipeImage"
-            app:layout_constraintTop_toBottomOf="@+id/prep_time_label" />
+            app:layout_constraintStart_toEndOf="@id/health_score_label"
+            app:layout_constraintTop_toBottomOf="@+id/foofit_score_label" />
 
+
+        <TextView
+            android:id="@+id/dish_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="dessert"
+            android:textColor="@color/app_green"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/prep_time" />
+
+        <TextView
+            android:id="@+id/foofit_score_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="⚖Food Fit Score"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipeTitle" />
+
+        <TextView
+            android:id="@+id/foodFitScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingStart="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="score"
+            android:textColor="@color/app_green"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/foofit_score_label"
+            app:layout_constraintTop_toBottomOf="@+id/recipeTitle" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
