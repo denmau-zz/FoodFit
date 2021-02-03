@@ -124,13 +124,13 @@
 
     <FrameLayout
         android:id="@+id/fragment_container"
-        android:name="ResetPasswordFragment"
+        android:name="RecipesFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_reset_password" />
+        tools:layout="@layout/fragment_recipes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

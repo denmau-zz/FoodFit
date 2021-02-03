@@ -1,6 +1,6 @@
 /*
  * spoonacular API
- * The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 80,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+ * The spoonacular Nutrition, RecipeModel, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 80,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
  *
  * The version of the OpenAPI document: 1.0
  * Contact: david@spoonacular.com
@@ -318,7 +318,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-a-Recipe-Search-Query">Analyze a Recipe Search Query Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-a-Recipe-Search-Query">Analyze a RecipeModel Search Query Documentation</a>
      */
     public okhttp3.Call analyzeARecipeSearchQueryCall(String q, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -367,14 +367,14 @@ public class DefaultApi {
     }
 
     /**
-     * Analyze a Recipe Search Query
+     * Analyze a RecipeModel Search Query
      * Parse a recipe search query to find out its intention.
      *
      * @param q The recipe search query. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-a-Recipe-Search-Query">Analyze a Recipe Search Query Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-a-Recipe-Search-Query">Analyze a RecipeModel Search Query Documentation</a>
      */
     public Object analyzeARecipeSearchQuery(String q) throws ApiException {
         ApiResponse<Object> localVarResp = analyzeARecipeSearchQueryWithHttpInfo(q);
@@ -382,14 +382,14 @@ public class DefaultApi {
     }
 
     /**
-     * Analyze a Recipe Search Query
+     * Analyze a RecipeModel Search Query
      * Parse a recipe search query to find out its intention.
      *
      * @param q The recipe search query. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-a-Recipe-Search-Query">Analyze a Recipe Search Query Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-a-Recipe-Search-Query">Analyze a RecipeModel Search Query Documentation</a>
      */
     public ApiResponse<Object> analyzeARecipeSearchQueryWithHttpInfo(String q) throws ApiException {
         okhttp3.Call localVarCall = analyzeARecipeSearchQueryValidateBeforeCall(q, null);
@@ -399,7 +399,7 @@ public class DefaultApi {
     }
 
     /**
-     * Analyze a Recipe Search Query (asynchronously)
+     * Analyze a RecipeModel Search Query (asynchronously)
      * Parse a recipe search query to find out its intention.
      *
      * @param q         The recipe search query. (required)
@@ -407,7 +407,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-a-Recipe-Search-Query">Analyze a Recipe Search Query Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-a-Recipe-Search-Query">Analyze a RecipeModel Search Query Documentation</a>
      */
     public okhttp3.Call analyzeARecipeSearchQueryAsync(String q, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -426,7 +426,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions">Analyze Recipe Instructions Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions">Analyze RecipeModel Instructions Documentation</a>
      */
     public okhttp3.Call analyzeRecipeInstructionsCall(String instructions, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -475,14 +475,14 @@ public class DefaultApi {
     }
 
     /**
-     * Analyze Recipe Instructions
+     * Analyze RecipeModel Instructions
      * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
      *
      * @param instructions The instructions to be analyzed. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions">Analyze Recipe Instructions Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions">Analyze RecipeModel Instructions Documentation</a>
      */
     public Object analyzeRecipeInstructions(String instructions) throws ApiException {
         ApiResponse<Object> localVarResp = analyzeRecipeInstructionsWithHttpInfo(instructions);
@@ -490,14 +490,14 @@ public class DefaultApi {
     }
 
     /**
-     * Analyze Recipe Instructions
+     * Analyze RecipeModel Instructions
      * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
      *
      * @param instructions The instructions to be analyzed. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions">Analyze Recipe Instructions Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions">Analyze RecipeModel Instructions Documentation</a>
      */
     public ApiResponse<Object> analyzeRecipeInstructionsWithHttpInfo(String instructions) throws ApiException {
         okhttp3.Call localVarCall = analyzeRecipeInstructionsValidateBeforeCall(instructions, null);
@@ -507,7 +507,7 @@ public class DefaultApi {
     }
 
     /**
-     * Analyze Recipe Instructions (asynchronously)
+     * Analyze RecipeModel Instructions (asynchronously)
      * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
      *
      * @param instructions The instructions to be analyzed. (required)
@@ -515,7 +515,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions">Analyze Recipe Instructions Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions">Analyze RecipeModel Instructions Documentation</a>
      */
     public okhttp3.Call analyzeRecipeInstructionsAsync(String instructions, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -899,7 +899,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Recipe-Search">Autocomplete Recipe Search Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Recipe-Search">Autocomplete RecipeModel Search Documentation</a>
      */
     public okhttp3.Call autocompleteRecipeSearchCall(String query, BigDecimal number, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -952,7 +952,7 @@ public class DefaultApi {
     }
 
     /**
-     * Autocomplete Recipe Search
+     * Autocomplete RecipeModel Search
      * Autocomplete a partial input to suggest possible recipe names.
      *
      * @param query  The query to be autocompleted. (required)
@@ -960,7 +960,7 @@ public class DefaultApi {
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Recipe-Search">Autocomplete Recipe Search Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Recipe-Search">Autocomplete RecipeModel Search Documentation</a>
      */
     public Object autocompleteRecipeSearch(String query, BigDecimal number) throws ApiException {
         ApiResponse<Object> localVarResp = autocompleteRecipeSearchWithHttpInfo(query, number);
@@ -968,7 +968,7 @@ public class DefaultApi {
     }
 
     /**
-     * Autocomplete Recipe Search
+     * Autocomplete RecipeModel Search
      * Autocomplete a partial input to suggest possible recipe names.
      *
      * @param query  The query to be autocompleted. (required)
@@ -976,7 +976,7 @@ public class DefaultApi {
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Recipe-Search">Autocomplete Recipe Search Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Recipe-Search">Autocomplete RecipeModel Search Documentation</a>
      */
     public ApiResponse<Object> autocompleteRecipeSearchWithHttpInfo(String query, BigDecimal number) throws ApiException {
         okhttp3.Call localVarCall = autocompleteRecipeSearchValidateBeforeCall(query, number, null);
@@ -986,7 +986,7 @@ public class DefaultApi {
     }
 
     /**
-     * Autocomplete Recipe Search (asynchronously)
+     * Autocomplete RecipeModel Search (asynchronously)
      * Autocomplete a partial input to suggest possible recipe names.
      *
      * @param query     The query to be autocompleted. (required)
@@ -995,7 +995,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Recipe-Search">Autocomplete Recipe Search Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Recipe-Search">Autocomplete RecipeModel Search Documentation</a>
      */
     public okhttp3.Call autocompleteRecipeSearchAsync(String query, BigDecimal number, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -1862,7 +1862,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create RecipeModel Card Documentation</a>
      */
     public okhttp3.Call createRecipeCardCall(String title, File image, String ingredients, String instructions, BigDecimal readyInMinutes, BigDecimal servings, String mask, String backgroundImage, String author, String backgroundColor, String fontColor, String source, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -1990,7 +1990,7 @@ public class DefaultApi {
     }
 
     /**
-     * Create Recipe Card
+     * Create RecipeModel Card
      * Generate a recipe card for a recipe.
      *
      * @param title           The title of the recipe. (required)
@@ -2008,7 +2008,7 @@ public class DefaultApi {
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create RecipeModel Card Documentation</a>
      */
     public Object createRecipeCard(String title, File image, String ingredients, String instructions, BigDecimal readyInMinutes, BigDecimal servings, String mask, String backgroundImage, String author, String backgroundColor, String fontColor, String source) throws ApiException {
         ApiResponse<Object> localVarResp = createRecipeCardWithHttpInfo(title, image, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, author, backgroundColor, fontColor, source);
@@ -2016,7 +2016,7 @@ public class DefaultApi {
     }
 
     /**
-     * Create Recipe Card
+     * Create RecipeModel Card
      * Generate a recipe card for a recipe.
      *
      * @param title           The title of the recipe. (required)
@@ -2034,7 +2034,7 @@ public class DefaultApi {
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create RecipeModel Card Documentation</a>
      */
     public ApiResponse<Object> createRecipeCardWithHttpInfo(String title, File image, String ingredients, String instructions, BigDecimal readyInMinutes, BigDecimal servings, String mask, String backgroundImage, String author, String backgroundColor, String fontColor, String source) throws ApiException {
         okhttp3.Call localVarCall = createRecipeCardValidateBeforeCall(title, image, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, author, backgroundColor, fontColor, source, null);
@@ -2044,7 +2044,7 @@ public class DefaultApi {
     }
 
     /**
-     * Create Recipe Card (asynchronously)
+     * Create RecipeModel Card (asynchronously)
      * Generate a recipe card for a recipe.
      *
      * @param title           The title of the recipe. (required)
@@ -2063,7 +2063,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create RecipeModel Card Documentation</a>
      */
     public okhttp3.Call createRecipeCardAsync(String title, File image, String ingredients, String instructions, BigDecimal readyInMinutes, BigDecimal servings, String mask, String backgroundImage, String author, String backgroundColor, String fontColor, String source, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -2466,7 +2466,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract Recipe from Website Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract RecipeModel from Website Documentation</a>
      */
     public okhttp3.Call extractRecipeFromWebsiteCall(String url, Boolean forceExtraction, Boolean analyze, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -2523,7 +2523,7 @@ public class DefaultApi {
     }
 
     /**
-     * Extract Recipe from Website
+     * Extract RecipeModel from Website
      * This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
      *
      * @param url             The URL of the recipe page. (required)
@@ -2532,7 +2532,7 @@ public class DefaultApi {
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract Recipe from Website Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract RecipeModel from Website Documentation</a>
      */
     public Object extractRecipeFromWebsite(String url, Boolean forceExtraction, Boolean analyze) throws ApiException {
         ApiResponse<Object> localVarResp = extractRecipeFromWebsiteWithHttpInfo(url, forceExtraction, analyze);
@@ -2540,7 +2540,7 @@ public class DefaultApi {
     }
 
     /**
-     * Extract Recipe from Website
+     * Extract RecipeModel from Website
      * This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
      *
      * @param url             The URL of the recipe page. (required)
@@ -2549,7 +2549,7 @@ public class DefaultApi {
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract Recipe from Website Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract RecipeModel from Website Documentation</a>
      */
     public ApiResponse<Object> extractRecipeFromWebsiteWithHttpInfo(String url, Boolean forceExtraction, Boolean analyze) throws ApiException {
         okhttp3.Call localVarCall = extractRecipeFromWebsiteValidateBeforeCall(url, forceExtraction, analyze, null);
@@ -2559,7 +2559,7 @@ public class DefaultApi {
     }
 
     /**
-     * Extract Recipe from Website (asynchronously)
+     * Extract RecipeModel from Website (asynchronously)
      * This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
      *
      * @param url             The URL of the recipe page. (required)
@@ -2569,7 +2569,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract Recipe from Website Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract RecipeModel from Website Documentation</a>
      */
     public okhttp3.Call extractRecipeFromWebsiteAsync(String url, Boolean forceExtraction, Boolean analyze, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -2958,7 +2958,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions">Get Analyzed Recipe Instructions Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions">Get Analyzed RecipeModel Instructions Documentation</a>
      */
     public okhttp3.Call getAnalyzedRecipeInstructionsCall(BigDecimal id, Boolean stepBreakdown, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -3008,7 +3008,7 @@ public class DefaultApi {
     }
 
     /**
-     * Get Analyzed Recipe Instructions
+     * Get Analyzed RecipeModel Instructions
      * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
      *
      * @param id            The recipe id. (required)
@@ -3016,7 +3016,7 @@ public class DefaultApi {
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions">Get Analyzed Recipe Instructions Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions">Get Analyzed RecipeModel Instructions Documentation</a>
      */
     public Object getAnalyzedRecipeInstructions(BigDecimal id, Boolean stepBreakdown) throws ApiException {
         ApiResponse<Object> localVarResp = getAnalyzedRecipeInstructionsWithHttpInfo(id, stepBreakdown);
@@ -3024,7 +3024,7 @@ public class DefaultApi {
     }
 
     /**
-     * Get Analyzed Recipe Instructions
+     * Get Analyzed RecipeModel Instructions
      * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
      *
      * @param id            The recipe id. (required)
@@ -3032,7 +3032,7 @@ public class DefaultApi {
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions">Get Analyzed Recipe Instructions Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions">Get Analyzed RecipeModel Instructions Documentation</a>
      */
     public ApiResponse<Object> getAnalyzedRecipeInstructionsWithHttpInfo(BigDecimal id, Boolean stepBreakdown) throws ApiException {
         okhttp3.Call localVarCall = getAnalyzedRecipeInstructionsValidateBeforeCall(id, stepBreakdown, null);
@@ -3042,7 +3042,7 @@ public class DefaultApi {
     }
 
     /**
-     * Get Analyzed Recipe Instructions (asynchronously)
+     * Get Analyzed RecipeModel Instructions (asynchronously)
      * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
      *
      * @param id            The recipe id. (required)
@@ -3051,7 +3051,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions">Get Analyzed Recipe Instructions Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions">Get Analyzed RecipeModel Instructions Documentation</a>
      */
     public okhttp3.Call getAnalyzedRecipeInstructionsAsync(BigDecimal id, Boolean stepBreakdown, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -4531,7 +4531,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Equipment-by-ID">Get Recipe Equipment by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Equipment-by-ID">Get RecipeModel Equipment by ID Documentation</a>
      */
     public okhttp3.Call getRecipeEquipmentByIDCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -4577,14 +4577,14 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Equipment by ID
+     * Get RecipeModel Equipment by ID
      * Get a recipe&#39;s equipment list.
      *
      * @param id The recipe id. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Equipment-by-ID">Get Recipe Equipment by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Equipment-by-ID">Get RecipeModel Equipment by ID Documentation</a>
      */
     public Object getRecipeEquipmentByID(BigDecimal id) throws ApiException {
         ApiResponse<Object> localVarResp = getRecipeEquipmentByIDWithHttpInfo(id);
@@ -4592,14 +4592,14 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Equipment by ID
+     * Get RecipeModel Equipment by ID
      * Get a recipe&#39;s equipment list.
      *
      * @param id The recipe id. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Equipment-by-ID">Get Recipe Equipment by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Equipment-by-ID">Get RecipeModel Equipment by ID Documentation</a>
      */
     public ApiResponse<Object> getRecipeEquipmentByIDWithHttpInfo(BigDecimal id) throws ApiException {
         okhttp3.Call localVarCall = getRecipeEquipmentByIDValidateBeforeCall(id, null);
@@ -4609,7 +4609,7 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Equipment by ID (asynchronously)
+     * Get RecipeModel Equipment by ID (asynchronously)
      * Get a recipe&#39;s equipment list.
      *
      * @param id        The recipe id. (required)
@@ -4617,7 +4617,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Equipment-by-ID">Get Recipe Equipment by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Equipment-by-ID">Get RecipeModel Equipment by ID Documentation</a>
      */
     public okhttp3.Call getRecipeEquipmentByIDAsync(BigDecimal id, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -4637,7 +4637,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get Recipe Information Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get RecipeModel Information Documentation</a>
      */
     public okhttp3.Call getRecipeInformationCall(BigDecimal id, Boolean includeNutrition, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -4687,7 +4687,7 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Information
+     * Get RecipeModel Information
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
      *
      * @param id               The id of the recipe. (required)
@@ -4695,7 +4695,7 @@ public class DefaultApi {
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get Recipe Information Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get RecipeModel Information Documentation</a>
      */
     public Object getRecipeInformation(BigDecimal id, Boolean includeNutrition) throws ApiException {
         ApiResponse<Object> localVarResp = getRecipeInformationWithHttpInfo(id, includeNutrition);
@@ -4703,7 +4703,7 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Information
+     * Get RecipeModel Information
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
      *
      * @param id               The id of the recipe. (required)
@@ -4711,7 +4711,7 @@ public class DefaultApi {
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get Recipe Information Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get RecipeModel Information Documentation</a>
      */
     public ApiResponse<Object> getRecipeInformationWithHttpInfo(BigDecimal id, Boolean includeNutrition) throws ApiException {
         okhttp3.Call localVarCall = getRecipeInformationValidateBeforeCall(id, includeNutrition, null);
@@ -4721,7 +4721,7 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Information (asynchronously)
+     * Get RecipeModel Information (asynchronously)
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
      *
      * @param id               The id of the recipe. (required)
@@ -4730,7 +4730,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get Recipe Information Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get RecipeModel Information Documentation</a>
      */
     public okhttp3.Call getRecipeInformationAsync(BigDecimal id, Boolean includeNutrition, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -4750,7 +4750,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk">Get Recipe Information Bulk Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk">Get RecipeModel Information Bulk Documentation</a>
      */
     public okhttp3.Call getRecipeInformationBulkCall(String ids, Boolean includeNutrition, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -4803,15 +4803,15 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Information Bulk
-     * Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
+     * Get RecipeModel Information Bulk
+     * Get information about multiple recipes at once. This is equivalent to calling the Get RecipeModel Information endpoint multiple times, but faster.
      *
      * @param ids              A comma-separated list of recipe ids. (required)
      * @param includeNutrition Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk">Get Recipe Information Bulk Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk">Get RecipeModel Information Bulk Documentation</a>
      */
     public Object getRecipeInformationBulk(String ids, Boolean includeNutrition) throws ApiException {
         ApiResponse<Object> localVarResp = getRecipeInformationBulkWithHttpInfo(ids, includeNutrition);
@@ -4819,15 +4819,15 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Information Bulk
-     * Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
+     * Get RecipeModel Information Bulk
+     * Get information about multiple recipes at once. This is equivalent to calling the Get RecipeModel Information endpoint multiple times, but faster.
      *
      * @param ids              A comma-separated list of recipe ids. (required)
      * @param includeNutrition Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk">Get Recipe Information Bulk Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk">Get RecipeModel Information Bulk Documentation</a>
      */
     public ApiResponse<Object> getRecipeInformationBulkWithHttpInfo(String ids, Boolean includeNutrition) throws ApiException {
         okhttp3.Call localVarCall = getRecipeInformationBulkValidateBeforeCall(ids, includeNutrition, null);
@@ -4837,8 +4837,8 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Information Bulk (asynchronously)
-     * Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
+     * Get RecipeModel Information Bulk (asynchronously)
+     * Get information about multiple recipes at once. This is equivalent to calling the Get RecipeModel Information endpoint multiple times, but faster.
      *
      * @param ids              A comma-separated list of recipe ids. (required)
      * @param includeNutrition Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
@@ -4846,7 +4846,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk">Get Recipe Information Bulk Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk">Get RecipeModel Information Bulk Documentation</a>
      */
     public okhttp3.Call getRecipeInformationBulkAsync(String ids, Boolean includeNutrition, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -4865,7 +4865,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Ingredients-by-ID">Get Recipe Ingredients by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Ingredients-by-ID">Get RecipeModel Ingredients by ID Documentation</a>
      */
     public okhttp3.Call getRecipeIngredientsByIDCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -4911,14 +4911,14 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Ingredients by ID
+     * Get RecipeModel Ingredients by ID
      * Get a recipe&#39;s ingredient list.
      *
      * @param id The recipe id. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Ingredients-by-ID">Get Recipe Ingredients by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Ingredients-by-ID">Get RecipeModel Ingredients by ID Documentation</a>
      */
     public Object getRecipeIngredientsByID(BigDecimal id) throws ApiException {
         ApiResponse<Object> localVarResp = getRecipeIngredientsByIDWithHttpInfo(id);
@@ -4926,14 +4926,14 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Ingredients by ID
+     * Get RecipeModel Ingredients by ID
      * Get a recipe&#39;s ingredient list.
      *
      * @param id The recipe id. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Ingredients-by-ID">Get Recipe Ingredients by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Ingredients-by-ID">Get RecipeModel Ingredients by ID Documentation</a>
      */
     public ApiResponse<Object> getRecipeIngredientsByIDWithHttpInfo(BigDecimal id) throws ApiException {
         okhttp3.Call localVarCall = getRecipeIngredientsByIDValidateBeforeCall(id, null);
@@ -4943,7 +4943,7 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Ingredients by ID (asynchronously)
+     * Get RecipeModel Ingredients by ID (asynchronously)
      * Get a recipe&#39;s ingredient list.
      *
      * @param id        The recipe id. (required)
@@ -4951,7 +4951,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Ingredients-by-ID">Get Recipe Ingredients by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Ingredients-by-ID">Get RecipeModel Ingredients by ID Documentation</a>
      */
     public okhttp3.Call getRecipeIngredientsByIDAsync(BigDecimal id, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -4970,7 +4970,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Nutrition-Widget-by-ID">Get Recipe Nutrition Widget by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Nutrition-Widget-by-ID">Get RecipeModel Nutrition Widget by ID Documentation</a>
      */
     public okhttp3.Call getRecipeNutritionWidgetByIDCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -5016,14 +5016,14 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Nutrition Widget by ID
+     * Get RecipeModel Nutrition Widget by ID
      * Get a recipe&#39;s nutrition widget data.
      *
      * @param id The recipe id. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Nutrition-Widget-by-ID">Get Recipe Nutrition Widget by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Nutrition-Widget-by-ID">Get RecipeModel Nutrition Widget by ID Documentation</a>
      */
     public Object getRecipeNutritionWidgetByID(BigDecimal id) throws ApiException {
         ApiResponse<Object> localVarResp = getRecipeNutritionWidgetByIDWithHttpInfo(id);
@@ -5031,14 +5031,14 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Nutrition Widget by ID
+     * Get RecipeModel Nutrition Widget by ID
      * Get a recipe&#39;s nutrition widget data.
      *
      * @param id The recipe id. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Nutrition-Widget-by-ID">Get Recipe Nutrition Widget by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Nutrition-Widget-by-ID">Get RecipeModel Nutrition Widget by ID Documentation</a>
      */
     public ApiResponse<Object> getRecipeNutritionWidgetByIDWithHttpInfo(BigDecimal id) throws ApiException {
         okhttp3.Call localVarCall = getRecipeNutritionWidgetByIDValidateBeforeCall(id, null);
@@ -5048,7 +5048,7 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Nutrition Widget by ID (asynchronously)
+     * Get RecipeModel Nutrition Widget by ID (asynchronously)
      * Get a recipe&#39;s nutrition widget data.
      *
      * @param id        The recipe id. (required)
@@ -5056,7 +5056,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Nutrition-Widget-by-ID">Get Recipe Nutrition Widget by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Nutrition-Widget-by-ID">Get RecipeModel Nutrition Widget by ID Documentation</a>
      */
     public okhttp3.Call getRecipeNutritionWidgetByIDAsync(BigDecimal id, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -5075,7 +5075,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Price-Breakdown-by-ID">Get Recipe Price Breakdown by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Price-Breakdown-by-ID">Get RecipeModel Price Breakdown by ID Documentation</a>
      */
     public okhttp3.Call getRecipePriceBreakdownByIDCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -5121,14 +5121,14 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Price Breakdown by ID
+     * Get RecipeModel Price Breakdown by ID
      * Get a recipe&#39;s price breakdown data.
      *
      * @param id The recipe id. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Price-Breakdown-by-ID">Get Recipe Price Breakdown by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Price-Breakdown-by-ID">Get RecipeModel Price Breakdown by ID Documentation</a>
      */
     public Object getRecipePriceBreakdownByID(BigDecimal id) throws ApiException {
         ApiResponse<Object> localVarResp = getRecipePriceBreakdownByIDWithHttpInfo(id);
@@ -5136,14 +5136,14 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Price Breakdown by ID
+     * Get RecipeModel Price Breakdown by ID
      * Get a recipe&#39;s price breakdown data.
      *
      * @param id The recipe id. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Price-Breakdown-by-ID">Get Recipe Price Breakdown by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Price-Breakdown-by-ID">Get RecipeModel Price Breakdown by ID Documentation</a>
      */
     public ApiResponse<Object> getRecipePriceBreakdownByIDWithHttpInfo(BigDecimal id) throws ApiException {
         okhttp3.Call localVarCall = getRecipePriceBreakdownByIDValidateBeforeCall(id, null);
@@ -5153,7 +5153,7 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Price Breakdown by ID (asynchronously)
+     * Get RecipeModel Price Breakdown by ID (asynchronously)
      * Get a recipe&#39;s price breakdown data.
      *
      * @param id        The recipe id. (required)
@@ -5161,7 +5161,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Price-Breakdown-by-ID">Get Recipe Price Breakdown by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Price-Breakdown-by-ID">Get RecipeModel Price Breakdown by ID Documentation</a>
      */
     public okhttp3.Call getRecipePriceBreakdownByIDAsync(BigDecimal id, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -5180,7 +5180,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get Recipe Taste by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get RecipeModel Taste by ID Documentation</a>
      */
     public okhttp3.Call getRecipeTasteByIDCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -5226,14 +5226,14 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Taste by ID
+     * Get RecipeModel Taste by ID
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      *
      * @param id The recipe id. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get Recipe Taste by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get RecipeModel Taste by ID Documentation</a>
      */
     public Object getRecipeTasteByID(BigDecimal id) throws ApiException {
         ApiResponse<Object> localVarResp = getRecipeTasteByIDWithHttpInfo(id);
@@ -5241,14 +5241,14 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Taste by ID
+     * Get RecipeModel Taste by ID
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      *
      * @param id The recipe id. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get Recipe Taste by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get RecipeModel Taste by ID Documentation</a>
      */
     public ApiResponse<Object> getRecipeTasteByIDWithHttpInfo(BigDecimal id) throws ApiException {
         okhttp3.Call localVarCall = getRecipeTasteByIDValidateBeforeCall(id, null);
@@ -5258,7 +5258,7 @@ public class DefaultApi {
     }
 
     /**
-     * Get Recipe Taste by ID (asynchronously)
+     * Get RecipeModel Taste by ID (asynchronously)
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      *
      * @param id        The recipe id. (required)
@@ -5266,7 +5266,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get Recipe Taste by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get RecipeModel Taste by ID Documentation</a>
      */
     public okhttp3.Call getRecipeTasteByIDAsync(BigDecimal id, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -9511,7 +9511,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Summarize-Recipe">Summarize Recipe Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Summarize-Recipe">Summarize RecipeModel Documentation</a>
      */
     public okhttp3.Call summarizeRecipeCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -9557,14 +9557,14 @@ public class DefaultApi {
     }
 
     /**
-     * Summarize Recipe
+     * Summarize RecipeModel
      * Automatically generate a short description that summarizes key information about the recipe.
      *
      * @param id The recipe id. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Summarize-Recipe">Summarize Recipe Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Summarize-Recipe">Summarize RecipeModel Documentation</a>
      */
     public Object summarizeRecipe(BigDecimal id) throws ApiException {
         ApiResponse<Object> localVarResp = summarizeRecipeWithHttpInfo(id);
@@ -9572,14 +9572,14 @@ public class DefaultApi {
     }
 
     /**
-     * Summarize Recipe
+     * Summarize RecipeModel
      * Automatically generate a short description that summarizes key information about the recipe.
      *
      * @param id The recipe id. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Summarize-Recipe">Summarize Recipe Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Summarize-Recipe">Summarize RecipeModel Documentation</a>
      */
     public ApiResponse<Object> summarizeRecipeWithHttpInfo(BigDecimal id) throws ApiException {
         okhttp3.Call localVarCall = summarizeRecipeValidateBeforeCall(id, null);
@@ -9589,7 +9589,7 @@ public class DefaultApi {
     }
 
     /**
-     * Summarize Recipe (asynchronously)
+     * Summarize RecipeModel (asynchronously)
      * Automatically generate a short description that summarizes key information about the recipe.
      *
      * @param id        The recipe id. (required)
@@ -9597,7 +9597,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Summarize-Recipe">Summarize Recipe Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Summarize-Recipe">Summarize RecipeModel Documentation</a>
      */
     public okhttp3.Call summarizeRecipeAsync(BigDecimal id, final ApiCallback<Object> _callback) throws ApiException {
 
@@ -10389,7 +10389,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Equipment-by-ID">Visualize Recipe Equipment by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Equipment-by-ID">Visualize RecipeModel Equipment by ID Documentation</a>
      */
     public okhttp3.Call visualizeRecipeEquipmentByIDCall(BigDecimal id, Boolean defaultCss, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -10439,7 +10439,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Equipment by ID
+     * Visualize RecipeModel Equipment by ID
      * Visualize a recipe&#39;s equipment list.
      *
      * @param id         The recipe id. (required)
@@ -10447,7 +10447,7 @@ public class DefaultApi {
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Equipment-by-ID">Visualize Recipe Equipment by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Equipment-by-ID">Visualize RecipeModel Equipment by ID Documentation</a>
      */
     public String visualizeRecipeEquipmentByID(BigDecimal id, Boolean defaultCss) throws ApiException {
         ApiResponse<String> localVarResp = visualizeRecipeEquipmentByIDWithHttpInfo(id, defaultCss);
@@ -10455,7 +10455,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Equipment by ID
+     * Visualize RecipeModel Equipment by ID
      * Visualize a recipe&#39;s equipment list.
      *
      * @param id         The recipe id. (required)
@@ -10463,7 +10463,7 @@ public class DefaultApi {
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Equipment-by-ID">Visualize Recipe Equipment by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Equipment-by-ID">Visualize RecipeModel Equipment by ID Documentation</a>
      */
     public ApiResponse<String> visualizeRecipeEquipmentByIDWithHttpInfo(BigDecimal id, Boolean defaultCss) throws ApiException {
         okhttp3.Call localVarCall = visualizeRecipeEquipmentByIDValidateBeforeCall(id, defaultCss, null);
@@ -10473,7 +10473,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Equipment by ID (asynchronously)
+     * Visualize RecipeModel Equipment by ID (asynchronously)
      * Visualize a recipe&#39;s equipment list.
      *
      * @param id         The recipe id. (required)
@@ -10482,7 +10482,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Equipment-by-ID">Visualize Recipe Equipment by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Equipment-by-ID">Visualize RecipeModel Equipment by ID Documentation</a>
      */
     public okhttp3.Call visualizeRecipeEquipmentByIDAsync(BigDecimal id, Boolean defaultCss, final ApiCallback<String> _callback) throws ApiException {
 
@@ -10502,7 +10502,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Ingredients-by-ID">Visualize Recipe Ingredients by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Ingredients-by-ID">Visualize RecipeModel Ingredients by ID Documentation</a>
      */
     public okhttp3.Call visualizeRecipeIngredientsByIDCall(BigDecimal id, Boolean defaultCss, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -10552,7 +10552,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Ingredients by ID
+     * Visualize RecipeModel Ingredients by ID
      * Visualize a recipe&#39;s ingredient list.
      *
      * @param id         The recipe id. (required)
@@ -10560,7 +10560,7 @@ public class DefaultApi {
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Ingredients-by-ID">Visualize Recipe Ingredients by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Ingredients-by-ID">Visualize RecipeModel Ingredients by ID Documentation</a>
      */
     public String visualizeRecipeIngredientsByID(BigDecimal id, Boolean defaultCss) throws ApiException {
         ApiResponse<String> localVarResp = visualizeRecipeIngredientsByIDWithHttpInfo(id, defaultCss);
@@ -10568,7 +10568,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Ingredients by ID
+     * Visualize RecipeModel Ingredients by ID
      * Visualize a recipe&#39;s ingredient list.
      *
      * @param id         The recipe id. (required)
@@ -10576,7 +10576,7 @@ public class DefaultApi {
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Ingredients-by-ID">Visualize Recipe Ingredients by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Ingredients-by-ID">Visualize RecipeModel Ingredients by ID Documentation</a>
      */
     public ApiResponse<String> visualizeRecipeIngredientsByIDWithHttpInfo(BigDecimal id, Boolean defaultCss) throws ApiException {
         okhttp3.Call localVarCall = visualizeRecipeIngredientsByIDValidateBeforeCall(id, defaultCss, null);
@@ -10586,7 +10586,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Ingredients by ID (asynchronously)
+     * Visualize RecipeModel Ingredients by ID (asynchronously)
      * Visualize a recipe&#39;s ingredient list.
      *
      * @param id         The recipe id. (required)
@@ -10595,7 +10595,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Ingredients-by-ID">Visualize Recipe Ingredients by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Ingredients-by-ID">Visualize RecipeModel Ingredients by ID Documentation</a>
      */
     public okhttp3.Call visualizeRecipeIngredientsByIDAsync(BigDecimal id, Boolean defaultCss, final ApiCallback<String> _callback) throws ApiException {
 
@@ -10617,7 +10617,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition">Visualize Recipe Nutrition Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition">Visualize RecipeModel Nutrition Documentation</a>
      */
     public okhttp3.Call visualizeRecipeNutritionCall(String ingredientList, BigDecimal servings, Boolean defaultCss, Boolean showBacklink, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -10683,7 +10683,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Nutrition
+     * Visualize RecipeModel Nutrition
      * Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
      *
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
@@ -10693,7 +10693,7 @@ public class DefaultApi {
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition">Visualize Recipe Nutrition Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition">Visualize RecipeModel Nutrition Documentation</a>
      */
     public String visualizeRecipeNutrition(String ingredientList, BigDecimal servings, Boolean defaultCss, Boolean showBacklink) throws ApiException {
         ApiResponse<String> localVarResp = visualizeRecipeNutritionWithHttpInfo(ingredientList, servings, defaultCss, showBacklink);
@@ -10701,7 +10701,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Nutrition
+     * Visualize RecipeModel Nutrition
      * Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
      *
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
@@ -10711,7 +10711,7 @@ public class DefaultApi {
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition">Visualize Recipe Nutrition Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition">Visualize RecipeModel Nutrition Documentation</a>
      */
     public ApiResponse<String> visualizeRecipeNutritionWithHttpInfo(String ingredientList, BigDecimal servings, Boolean defaultCss, Boolean showBacklink) throws ApiException {
         okhttp3.Call localVarCall = visualizeRecipeNutritionValidateBeforeCall(ingredientList, servings, defaultCss, showBacklink, null);
@@ -10721,7 +10721,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Nutrition (asynchronously)
+     * Visualize RecipeModel Nutrition (asynchronously)
      * Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
      *
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
@@ -10732,7 +10732,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition">Visualize Recipe Nutrition Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition">Visualize RecipeModel Nutrition Documentation</a>
      */
     public okhttp3.Call visualizeRecipeNutritionAsync(String ingredientList, BigDecimal servings, Boolean defaultCss, Boolean showBacklink, final ApiCallback<String> _callback) throws ApiException {
 
@@ -10752,7 +10752,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition-by-ID">Visualize Recipe Nutrition by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition-by-ID">Visualize RecipeModel Nutrition by ID Documentation</a>
      */
     public okhttp3.Call visualizeRecipeNutritionByIDCall(BigDecimal id, Boolean defaultCss, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -10802,7 +10802,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Nutrition by ID
+     * Visualize RecipeModel Nutrition by ID
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
      *
      * @param id         The recipe id. (required)
@@ -10810,7 +10810,7 @@ public class DefaultApi {
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition-by-ID">Visualize Recipe Nutrition by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition-by-ID">Visualize RecipeModel Nutrition by ID Documentation</a>
      */
     public String visualizeRecipeNutritionByID(BigDecimal id, Boolean defaultCss) throws ApiException {
         ApiResponse<String> localVarResp = visualizeRecipeNutritionByIDWithHttpInfo(id, defaultCss);
@@ -10818,7 +10818,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Nutrition by ID
+     * Visualize RecipeModel Nutrition by ID
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
      *
      * @param id         The recipe id. (required)
@@ -10826,7 +10826,7 @@ public class DefaultApi {
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition-by-ID">Visualize Recipe Nutrition by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition-by-ID">Visualize RecipeModel Nutrition by ID Documentation</a>
      */
     public ApiResponse<String> visualizeRecipeNutritionByIDWithHttpInfo(BigDecimal id, Boolean defaultCss) throws ApiException {
         okhttp3.Call localVarCall = visualizeRecipeNutritionByIDValidateBeforeCall(id, defaultCss, null);
@@ -10836,7 +10836,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Nutrition by ID (asynchronously)
+     * Visualize RecipeModel Nutrition by ID (asynchronously)
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
      *
      * @param id         The recipe id. (required)
@@ -10845,7 +10845,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition-by-ID">Visualize Recipe Nutrition by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition-by-ID">Visualize RecipeModel Nutrition by ID Documentation</a>
      */
     public okhttp3.Call visualizeRecipeNutritionByIDAsync(BigDecimal id, Boolean defaultCss, final ApiCallback<String> _callback) throws ApiException {
 
@@ -10865,7 +10865,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Price-Breakdown-by-ID">Visualize Recipe Price Breakdown by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Price-Breakdown-by-ID">Visualize RecipeModel Price Breakdown by ID Documentation</a>
      */
     public okhttp3.Call visualizeRecipePriceBreakdownByIDCall(BigDecimal id, Boolean defaultCss, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -10915,7 +10915,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Price Breakdown by ID
+     * Visualize RecipeModel Price Breakdown by ID
      * Visualize a recipe&#39;s price breakdown.
      *
      * @param id         The recipe id. (required)
@@ -10923,7 +10923,7 @@ public class DefaultApi {
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Price-Breakdown-by-ID">Visualize Recipe Price Breakdown by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Price-Breakdown-by-ID">Visualize RecipeModel Price Breakdown by ID Documentation</a>
      */
     public String visualizeRecipePriceBreakdownByID(BigDecimal id, Boolean defaultCss) throws ApiException {
         ApiResponse<String> localVarResp = visualizeRecipePriceBreakdownByIDWithHttpInfo(id, defaultCss);
@@ -10931,7 +10931,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Price Breakdown by ID
+     * Visualize RecipeModel Price Breakdown by ID
      * Visualize a recipe&#39;s price breakdown.
      *
      * @param id         The recipe id. (required)
@@ -10939,7 +10939,7 @@ public class DefaultApi {
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Price-Breakdown-by-ID">Visualize Recipe Price Breakdown by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Price-Breakdown-by-ID">Visualize RecipeModel Price Breakdown by ID Documentation</a>
      */
     public ApiResponse<String> visualizeRecipePriceBreakdownByIDWithHttpInfo(BigDecimal id, Boolean defaultCss) throws ApiException {
         okhttp3.Call localVarCall = visualizeRecipePriceBreakdownByIDValidateBeforeCall(id, defaultCss, null);
@@ -10949,7 +10949,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Price Breakdown by ID (asynchronously)
+     * Visualize RecipeModel Price Breakdown by ID (asynchronously)
      * Visualize a recipe&#39;s price breakdown.
      *
      * @param id         The recipe id. (required)
@@ -10958,7 +10958,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Price-Breakdown-by-ID">Visualize Recipe Price Breakdown by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Price-Breakdown-by-ID">Visualize RecipeModel Price Breakdown by ID Documentation</a>
      */
     public okhttp3.Call visualizeRecipePriceBreakdownByIDAsync(BigDecimal id, Boolean defaultCss, final ApiCallback<String> _callback) throws ApiException {
 
@@ -10977,7 +10977,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize Recipe Taste Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize RecipeModel Taste Documentation</a>
      */
     public okhttp3.Call visualizeRecipeTasteCall(String ingredientList, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -11026,14 +11026,14 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Taste
+     * Visualize RecipeModel Taste
      * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
      *
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize Recipe Taste Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize RecipeModel Taste Documentation</a>
      */
     public String visualizeRecipeTaste(String ingredientList) throws ApiException {
         ApiResponse<String> localVarResp = visualizeRecipeTasteWithHttpInfo(ingredientList);
@@ -11041,14 +11041,14 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Taste
+     * Visualize RecipeModel Taste
      * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
      *
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize Recipe Taste Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize RecipeModel Taste Documentation</a>
      */
     public ApiResponse<String> visualizeRecipeTasteWithHttpInfo(String ingredientList) throws ApiException {
         okhttp3.Call localVarCall = visualizeRecipeTasteValidateBeforeCall(ingredientList, null);
@@ -11058,7 +11058,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Taste (asynchronously)
+     * Visualize RecipeModel Taste (asynchronously)
      * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
      *
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
@@ -11066,7 +11066,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize Recipe Taste Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize RecipeModel Taste Documentation</a>
      */
     public okhttp3.Call visualizeRecipeTasteAsync(String ingredientList, final ApiCallback<String> _callback) throws ApiException {
 
@@ -11085,7 +11085,7 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize Recipe Taste by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize RecipeModel Taste by ID Documentation</a>
      */
     public okhttp3.Call visualizeRecipeTasteByIDCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -11131,14 +11131,14 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Taste by ID
+     * Visualize RecipeModel Taste by ID
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      *
      * @param id The recipe id. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize Recipe Taste by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize RecipeModel Taste by ID Documentation</a>
      */
     public String visualizeRecipeTasteByID(BigDecimal id) throws ApiException {
         ApiResponse<String> localVarResp = visualizeRecipeTasteByIDWithHttpInfo(id);
@@ -11146,14 +11146,14 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Taste by ID
+     * Visualize RecipeModel Taste by ID
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      *
      * @param id The recipe id. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize Recipe Taste by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize RecipeModel Taste by ID Documentation</a>
      */
     public ApiResponse<String> visualizeRecipeTasteByIDWithHttpInfo(BigDecimal id) throws ApiException {
         okhttp3.Call localVarCall = visualizeRecipeTasteByIDValidateBeforeCall(id, null);
@@ -11163,7 +11163,7 @@ public class DefaultApi {
     }
 
     /**
-     * Visualize Recipe Taste by ID (asynchronously)
+     * Visualize RecipeModel Taste by ID (asynchronously)
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      *
      * @param id        The recipe id. (required)
@@ -11171,7 +11171,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      *                      Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize Recipe Taste by ID Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize RecipeModel Taste by ID Documentation</a>
      */
     public okhttp3.Call visualizeRecipeTasteByIDAsync(BigDecimal id, final ApiCallback<String> _callback) throws ApiException {
 
