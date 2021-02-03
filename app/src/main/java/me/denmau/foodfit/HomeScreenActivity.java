@@ -6,6 +6,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -40,6 +41,8 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
         //getting bottom navigation view and attaching the listener
         BottomNavigationView bottomNav = findViewById(R.id.navigation);
         bottomNav.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
@@ -47,8 +50,8 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
         super.onStart();
 
         // Load data into the ArrayList
-        recipes.add(new RecipeModel(R.drawable.app_logo, "Mihogo", 30, 4.5, 2.5, "Dessert"));
-        recipes.add(new RecipeModel(R.drawable.splash_screen_image, "Cassava", 30, 9.5, 1.5, "Appetizer"));
+        recipes.add(new RecipeModel(R.drawable.app_logo, "Chocolate Cakes", 30, 4.5, 2.5, "Dessert"));
+        recipes.add(new RecipeModel(R.drawable.splash_screen_image, "Broiled double-thick Lamb chops", 45, 9.5, 1.5, "Appetizer"));
 
         // Instantiate Recipes Fragment.
         RecipesFragment recipesFragment = RecipesFragment.newInstance(recipes);
@@ -80,7 +83,6 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
-
         switch (item.getItemId()) {
             case R.id.navigation_home:
                 fragment = RecipesFragment.newInstance(recipes);
@@ -90,10 +92,17 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
                 fragment = new SearchFragment();
                 break;
 
+
+
+
+
+
+
+
             case R.id.navigation_random:
                 fragment = new RandomFragment();
                 break;
         }
-
-        return loadFragment(fragment);    }
+        return loadFragment(fragment);
+    }
 }

@@ -14,7 +14,8 @@
         <activity
             android:name=".NavDrawerActivity"
             android:label="@string/title_activity_nav_drawer"
-            android:theme="@style/Theme.FoodFit.NoActionBar"></activity>
+            android:theme="@style/Theme.FoodFit.NoActionBar">
+        </activity>
         <activity
             android:name=".BottomNav"
             android:label="@string/title_activity_bottom_nav" />
