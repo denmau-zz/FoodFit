@@ -42,6 +42,11 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="search">Search</string>
-    <string name="ingredients">Ingredients</string>
+    <string name="ingridients">Ingredients</string>
+    <string name="img_of_recipe">image of recipe</string>
+    <string name="recipe_title">Recipe Title</string>
+    <string name="vegetarian">vegeterian</string>
+    <string name="mins">mins</string>
+    <string name="instructions">Instructions</string>
 
 </resources>

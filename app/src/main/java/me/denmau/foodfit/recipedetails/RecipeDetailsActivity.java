@@ -9,7 +9,14 @@ import me.denmau.foodfit.R;
 
 public class RecipeDetailsActivity extends AppCompatActivity {
 
+    /*
+     * Created by Dennis Kamau
+     * website: https://www.denmau.me
+     */
+
+
     CardView cardView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +24,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_details);
 
         cardView = findViewById(R.id.cardView);
-        cardView.setBackgroundResource(R.drawable.card_view_bg);
+
     }
 }
