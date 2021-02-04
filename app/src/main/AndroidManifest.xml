@@ -11,17 +11,15 @@
         android:roundIcon="@drawable/app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodFit">
-        <activity android:name=".recipedetails.RecipeActivity" />
-        <activity android:name=".bottom_nav_views.RandomActivity" />
-        <activity android:name=".bottom_nav_views.SearchActivity" />
-        <activity
-            android:name=".BottomNav"
-            android:label="@string/title_activity_bottom_nav" />
-        <activity android:name=".bottom_nav_views.HomeScreenActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".AboutAppActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Screens.AboutAppActivity"></activity>
+        <activity android:name=".Screens.RegisterActivity" />
+        <activity android:name=".Screens.LoginActivity" />
+        <activity android:name=".Screens.AccountActivity" />
+        <activity android:name=".Screens.SearchActivity" />
+        <activity android:name=".Screens.RecipeDetails" />
+        <activity android:name=".adapter.RecipesAdapter" />
+        <activity android:name=".Screens.HomeScreenActivity" />
+        <activity android:name=".Screens.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

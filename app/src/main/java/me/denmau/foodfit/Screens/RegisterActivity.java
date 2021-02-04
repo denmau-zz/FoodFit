@@ -1,4 +1,7 @@
-package me.denmau.foodfit;
+package me.denmau.foodfit.Screens;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +11,6 @@ import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -18,10 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import me.denmau.foodfit.bottom_nav_views.HomeScreenActivity;
+import me.denmau.foodfit.R;
 
 public class RegisterActivity extends AppCompatActivity {
-
     /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
@@ -155,5 +154,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         startActivity(new Intent(RegisterActivity.this, HomeScreenActivity.class));
+        finish(); // no coming back
     }
+
 }

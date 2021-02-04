@@ -1,6 +1,11 @@
-package me.denmau.foodfit.spoonacularapi.model;
+package me.denmau.foodfit.model;
 
 public class Recipe {
+    /*
+     * Created by Dennis Kamau
+     * website: https://www.denmau.me
+     * This class should get/Recipes and add them into the arrayList before attaching the recipes fragment
+     */
 
     private String id;
     private String recipeTitle;

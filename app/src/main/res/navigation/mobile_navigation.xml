@@ -18,7 +18,7 @@
         tools:layout="@layout/fragment_search" />
 
     <fragment
-        android:id="@+id/navigation_random"
+        android:id="@+id/navigation_account"
         android:name="me.denmau.foodfit.ui.random.RandomFragment"
         android:label="Search"
         tools:layout="@layout/fragment_random" />

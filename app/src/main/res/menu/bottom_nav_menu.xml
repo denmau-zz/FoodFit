@@ -12,8 +12,8 @@
         android:title="@string/title_search_recipes" />
 
     <item
-        android:id="@+id/navigation_random"
+        android:id="@+id/navigation_account"
         android:icon="@drawable/ic_baseline_casino_24"
-        android:title="@string/title_random_recipes" />
+        android:title="@string/account" />
 
 </menu>

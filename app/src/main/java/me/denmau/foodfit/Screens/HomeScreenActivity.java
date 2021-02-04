@@ -1,4 +1,4 @@
-package me.denmau.foodfit.bottom_nav_views;
+package me.denmau.foodfit.Screens;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -27,19 +27,20 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import me.denmau.foodfit.R;
-import me.denmau.foodfit.reciperecycler.RecipesAdapter;
-import me.denmau.foodfit.spoonacularapi.model.Recipe;
+import me.denmau.foodfit.adapter.RecipesAdapter;
+import me.denmau.foodfit.model.Recipe;
 
 public class HomeScreenActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
     /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
-     * This class should get/Recipes and add them into the arrayList before attaching the recipes fragment
      */
 
-    private List<Recipe> lstRecipe = new ArrayList<>();
     private final String TAG = "HomeScreenActivity";
+    private List<Recipe> lstRecipe = new ArrayList<>();
     private JSONArray testArr;
 
     private RecyclerView recyclerView;
@@ -53,7 +54,6 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
         recyclerView = findViewById(R.id.recyclerView);
         BottomNavigationView bottomNav = findViewById(R.id.navigation);
         bottomNav.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
-        loadRandomDataIntoTheArrayList();
     }
 
     @Override
@@ -61,6 +61,7 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
         super.onStart();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        loadRandomDataIntoTheArrayList();
     }
 
     @Override
@@ -75,19 +76,16 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
                 activity = new SearchActivity();
                 break;
 
-            case R.id.navigation_random:
-                activity = new RandomActivity();
+            case R.id.navigation_account:
+                activity = new AccountActivity();
                 break;
         }
-        if (activity == null)
-            return false;
-
         startActivity(new Intent(this, activity.getClass()));
         return true;
     }
 
     public void loadRandomDataIntoTheArrayList() {
-        String URL = " https://api.spoonacular.com/recipes/random?number=5&instructionsRequired=true&apiKey=c957b6816ba048139fbc25a67d2cff33";
+        String URL = " https://api.spoonacular.com/recipes/random?number=15&instructionsRequired=true&apiKey=cd8529246615472c836a287e70267be1";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
@@ -103,29 +101,36 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
                             for (int i = 0; i < testArr.length(); i++) {
                                 JSONObject jsonObject1;
                                 jsonObject1 = testArr.getJSONObject(i);
-                                lstRecipe.add(new Recipe(jsonObject1.optString("id"), jsonObject1.optString("title"), "https://spoonacular.com/recipeImages/" + jsonObject1.optString("image"),
+                                lstRecipe.add(new Recipe(jsonObject1.optString("id"), jsonObject1.optString("title"), jsonObject1.optString("image"),
                                         Integer.parseInt(jsonObject1.optString("servings")), Integer.parseInt(jsonObject1.optString("readyInMinutes")),
                                         Double.parseDouble(jsonObject1.optString("healthScore")), Double.parseDouble(jsonObject1.optString("spoonacularScore"))));
                                 // Once we call RecipesFragment it should call the Adapter and it should set the Recycler View by itself
-                                Log.d(TAG, "Displaying Ingredients");
-                                DisplayIngredients();
+
+                                DisplayRecipeCards();
                             }
                         } catch (JSONException e) {
-                            Toast.makeText(HomeScreenActivity.this, "Couldn't attach Recepes!", Toast.LENGTH_SHORT).show();
+
+                            Toast.makeText(HomeScreenActivity.this, "Couldn't fetch Recipe!", Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
                     }
                 },
-                error -> Log.d("the volleyError:", error.toString())
+                error -> {
+                    Log.d("the volleyError:", error.toString());
+                    new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("We cannot load data at this point, please try later")
+                            .show();
+                }
         );
         requestQueue.add(jsonObjectRequest);
     }
 
-    public void DisplayIngredients() {
+    public void DisplayRecipeCards() {
         recyclerView.setHasFixedSize(true);
         int numberOfColumns = 2;
         recyclerView.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
         mAdapter = new RecipesAdapter(this, lstRecipe);
         recyclerView.setAdapter(mAdapter);
     }
+
 }

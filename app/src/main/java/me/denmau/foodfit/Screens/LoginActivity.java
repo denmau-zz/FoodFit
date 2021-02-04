@@ -1,4 +1,4 @@
-package me.denmau.foodfit;
+package me.denmau.foodfit.Screens;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,10 +23,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import me.denmau.foodfit.bottom_nav_views.HomeScreenActivity;
+import me.denmau.foodfit.R;
+import me.denmau.foodfit.ResetPasswordFragment;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnForgotPass = findViewById(R.id.forgotPass);
         btnForgotPass.setOnClickListener(this);
         btnLogin = findViewById(R.id.btnLogin);
-        btnLogin.setOnClickListener(this);
+        btnLogin.setOnClickListener((View.OnClickListener) this);
         emailField = (EditText) findViewById(R.id.reset_email);
         passwordField = (EditText) findViewById(R.id.login_password);
         // instantiate Firebase Authentication
@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                         signInSuccessDialog.setCanceledOnTouchOutside(true);
                                         signInSuccessDialog.show();
                                         FirebaseUser user = mAuth.getCurrentUser();
-                                        startActivity(new Intent(LoginActivity.this, HomeScreenActivity.class).putExtra("LogedInUser", user));
+                                        startActivity(new Intent(LoginActivity.this, HomeScreenActivity.class));
                                     } else {
                                         signInProgress.dismiss();
                                         // If sign in fails, display a message to the user.
@@ -110,6 +110,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 }
                             });
                 }
+
                 break;
         }
     }
@@ -127,7 +128,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //fragmentTransaction.add(R.id.fragment_container, resetPasswordFrag).addToBackStack(null).commit();\
         fragmentTransaction.add(R.id.fragment_container, resetPasswordFrag).addToBackStack(null).commit();
 
-        Toast.makeText(this, "reset password fragment has been opened", Toast.LENGTH_SHORT).show();
 
     }
 

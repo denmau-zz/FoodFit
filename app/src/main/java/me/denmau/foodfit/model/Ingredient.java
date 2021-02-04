@@ -1,6 +1,13 @@
-package me.denmau.foodfit.spoonacularapi.model;
+package me.denmau.foodfit.model;
 
 public class Ingredient {
+
+    /*
+     * Created by Dennis Kamau
+     * website: https://www.denmau.me
+     */
+
+
     private String name;
     private String Thumbnail;
     private boolean selected;

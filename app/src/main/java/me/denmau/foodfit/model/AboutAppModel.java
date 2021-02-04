@@ -20,7 +20,7 @@ public class AboutAppModel {
         this.aboutAppSliderImage = aboutAppSliderImage;
     }
 
-   // Getters
+    // Getters
 
     public int getAboutAppBanner() {
         return aboutAppBanner;

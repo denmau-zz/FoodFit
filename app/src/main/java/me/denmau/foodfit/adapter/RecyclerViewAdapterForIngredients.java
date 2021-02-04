@@ -1,4 +1,4 @@
-package me.denmau.foodfit.recipedetails;
+package me.denmau.foodfit.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -16,14 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.denmau.foodfit.R;
-import me.denmau.foodfit.spoonacularapi.model.Ingredient;
+import me.denmau.foodfit.model.Ingredient;
 
-public class RecyclerViewAdapterForIngridients extends RecyclerView.Adapter<RecyclerViewAdapterForIngridients.MyViewHolder> {
+public class RecyclerViewAdapterForIngredients extends RecyclerView.Adapter<RecyclerViewAdapterForIngredients.MyViewHolder> {
     private Context mContext;
     private List<Ingredient> mData;
     public static List<String> ingredientsList;
 
-    public RecyclerViewAdapterForIngridients(Context mContext, List<Ingredient> mData) {
+    public RecyclerViewAdapterForIngredients(Context mContext, List<Ingredient> mData) {
         this.mContext = mContext;
         this.mData = mData;
         ingredientsList = new ArrayList<>();
@@ -35,17 +35,15 @@ public class RecyclerViewAdapterForIngridients extends RecyclerView.Adapter<Recy
         View view;
         LayoutInflater mInflater = LayoutInflater.from(mContext);
         view = mInflater.inflate(R.layout.item_ingredient, parent, false);
-        return new RecyclerViewAdapterForIngridients.MyViewHolder(view);
+        return new RecyclerViewAdapterForIngredients.MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerViewAdapterForIngridients.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull RecyclerViewAdapterForIngredients.MyViewHolder holder, int position) {
         // Load the image
-        holder.tv_ingredient_name.setText(mData.get(position).getName());
-        Picasso.get().load(mData.get(position).getThumbnail()).into(holder.img_ingredient_thumbnail);
+        holder.ingredient_name.setText(mData.get(position).getName());
+        Picasso.get().load(mData.get(position).getThumbnail()).into(holder.ingredient_image);
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -53,14 +51,12 @@ public class RecyclerViewAdapterForIngridients extends RecyclerView.Adapter<Recy
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-
-        TextView tv_ingredient_name;
-        ImageView img_ingredient_thumbnail;
-
+        public TextView ingredient_name;
+        public ImageView ingredient_image;
         public MyViewHolder(View itemView) {
             super(itemView);
-            tv_ingredient_name = itemView.findViewById(R.id.recipe_ingredient_name);
-            img_ingredient_thumbnail = itemView.findViewById(R.id.recipe_ingredient_img);
+            ingredient_name = itemView.findViewById(R.id.ingredient_name);
+            ingredient_image = itemView.findViewById(R.id.ingredient_image);
         }
     }
 }

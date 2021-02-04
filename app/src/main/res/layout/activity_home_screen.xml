@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_green"
-    tools:context=".bottom_nav_views.HomeScreenActivity">
+    tools:context=".Screens.HomeScreenActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -17,18 +17,6 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:elevation="4dp"/>
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="276dp"
-        android:layout_height="160dp"
-        android:text="Fetching Data ..."
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -39,6 +27,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:scrollbars="vertical"
         android:paddingTop="?attr/actionBarSize"
+        android:layout_marginBottom="?attr/actionBarSize"
         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

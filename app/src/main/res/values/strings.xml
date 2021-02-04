@@ -52,5 +52,7 @@
     <string name="lunch">Lunch</string>
     <string name="breakfast">Breakfast</string>
     <string name="ingredients_list">Ingredients List</string>
+    <string name="account">Account</string>
+    <string name="email">Email</string>
 
 </resources>

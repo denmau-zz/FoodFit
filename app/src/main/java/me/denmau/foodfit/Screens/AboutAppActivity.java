@@ -1,4 +1,4 @@
-package me.denmau.foodfit;
+package me.denmau.foodfit.Screens;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.denmau.foodfit.R;
 import me.denmau.foodfit.model.AboutAppModel;
 
 public class AboutAppActivity extends AppCompatActivity {
+
     /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
@@ -167,4 +169,3 @@ public class AboutAppActivity extends AppCompatActivity {
         startActivity(new Intent(AboutAppActivity.this, MainActivity.class));
     }
 }
-

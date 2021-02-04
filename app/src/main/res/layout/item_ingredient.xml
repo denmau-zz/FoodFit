@@ -7,14 +7,13 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/recipe_ingredient_img"
+        android:id="@+id/ingredient_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:contentDescription="@+id/recipe_ingredient_img"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
-        android:id="@+id/recipe_ingredient_name"
+        android:id="@+id/ingredient_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"

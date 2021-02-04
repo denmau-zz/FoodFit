@@ -1,4 +1,4 @@
-package me.denmau.foodfit.bottom_nav_views;
+package me.denmau.foodfit.Screens;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -31,14 +31,18 @@ import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import me.denmau.foodfit.R;
-import me.denmau.foodfit.reciperecycler.RecipesAdapter;
-import me.denmau.foodfit.spoonacularapi.model.Recipe;
+import me.denmau.foodfit.adapter.RecipesAdapter;
+import me.denmau.foodfit.model.Recipe;
 
 public class SearchActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
-    private String TAG = "Search Activity";
 
-    private List<Recipe> lstRecipe = new ArrayList<>();
-    private List<Recipe> searchRecipe;
+    /*
+     * Created by Dennis Kamau
+     * website: https://www.denmau.me
+     */
+
+    private String TAG = "SearchActivity";
+    private List<Recipe> searchRecipe = new ArrayList<>();
     private JSONArray testArr;
     private Button searchBtn;
     private Button breakfastBtn, lunchBtn, dinnerBtn;
@@ -49,96 +53,26 @@ public class SearchActivity extends AppCompatActivity implements BottomNavigatio
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        // Identify Views
-        BottomNavigationView bottomNav = findViewById(R.id.navigation);
-
         //getting bottom navigation view and attaching the listener
+        BottomNavigationView bottomNav = findViewById(R.id.navigation);
         bottomNav.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
-
+        // Identify Views
+        recyclerView = findViewById(R.id.recyclerviewForSearchResults);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         searchTv = findViewById(R.id.search_recipes);
-        searchBtn = findViewById(R.id.search_btn);
+        searchBtn = findViewById(R.id.search_button);
         breakfastBtn = findViewById(R.id.home_breakfast_filter);
         lunchBtn = findViewById(R.id.home_lunch_filter);
         dinnerBtn = findViewById(R.id.home_dinner_filter);
-        breakfastBtn.setOnClickListener(this);
-        lunchBtn.setOnClickListener(this);
-        dinnerBtn.setOnClickListener(this);
-        searchBtn.setOnClickListener(this);
-
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-
-    }
-
-    private void searchRecipe(String search) {
-        searchRecipe = new ArrayList<Recipe>();
-        String URL = "https://api.spoonacular.com/recipes/search?query=" + search + "&number=15&instructionsRequired=true&apiKey=a1d1fd312d514991be23ea34891aaef9";
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                Request.Method.GET,
-                URL,
-                null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            testArr = (JSONArray) response.get("results");
-                            Log.i("search results:", String.valueOf(testArr));
-                            for (int i = 0; i < testArr.length(); i++) {
-                                JSONObject jsonObject1;
-                                jsonObject1 = testArr.getJSONObject(i);
-                                searchRecipe.add(new Recipe(jsonObject1.optString("id"), jsonObject1.optString("title"), "https://spoonacular.com/recipeImages/" + jsonObject1.optString("image"),
-                                        Integer.parseInt(jsonObject1.optString("servings")), Integer.parseInt(jsonObject1.optString("readyInMinutes")),
-                                        Double.parseDouble(jsonObject1.optString("healthScore")), Double.parseDouble(jsonObject1.optString("spoonacularScore"))));
-                            }
-
-                            if (searchRecipe.isEmpty()) {
-                                recyclerView.setAlpha(0);
-                                new SweetAlertDialog(SearchActivity.this, SweetAlertDialog.ERROR_TYPE)
-                                        .setTitleText("Oops...")
-                                        .setContentText("No Data")
-                                        .show();
-                            } else {
-
-                                RecipesAdapter myAdapter = new RecipesAdapter(SearchActivity.this, searchRecipe);
-                                recyclerView.setAdapter(myAdapter);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(SearchActivity.this, "Error: " + e.toString(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                },
-                error -> Log.d("the res is error:", error.toString())
-        );
-        requestQueue.add(jsonObjectRequest);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        // Identify Views
-
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Activity activity = null;
-        switch (item.getItemId()) {
-            case R.id.navigation_home:
-                activity = new HomeScreenActivity();
-                break;
-
-            case R.id.navigation_search:
-                activity = new SearchActivity();
-                break;
-
-            case R.id.navigation_random:
-                activity = new RandomActivity();
-                break;
-        }
-        startActivity(new Intent(this, activity.getClass()));
-        return true;
+        breakfastBtn.setOnClickListener(this);
+        lunchBtn.setOnClickListener(this);
+        dinnerBtn.setOnClickListener(this);
+        searchBtn.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -154,5 +88,78 @@ public class SearchActivity extends AppCompatActivity implements BottomNavigatio
             } else
                 Toast.makeText(SearchActivity.this, "Type something...", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void searchRecipe(String search) {
+        searchRecipe = new ArrayList<Recipe>();
+        String URL = "https://api.spoonacular.com/recipes/complexSearch?query=" + search + "&number=10&addRecipeInformation=true&instructionsRequired=true&apiKey=cd8529246615472c836a287e70267be1";
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                URL,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            testArr = (JSONArray) response.get("results");
+                            Log.i(TAG, "search results:" + String.valueOf(testArr));
+                            for (int i = 0; i < testArr.length(); i++) {
+                                JSONObject jsonObject1;
+                                jsonObject1 = testArr.getJSONObject(i);
+//                                try {
+                                searchRecipe.add(new Recipe(jsonObject1.optString("id"), jsonObject1.optString("title"), jsonObject1.optString("image"),
+                                        Integer.parseInt(jsonObject1.optString("servings")), Integer.parseInt(jsonObject1.optString("readyInMinutes")),
+                                        Double.parseDouble(jsonObject1.optString("healthScore")), Double.parseDouble(jsonObject1.optString("spoonacularScore"))));
+//                                } catch (Exception e) {
+//                                    Log.d(TAG, "Error: " + e.getMessage());
+//                                    Toast.makeText(SearchActivity.this, "We had trouble collecting some data", Toast.LENGTH_SHORT).show();
+//                                }
+                            }
+
+                            if (searchRecipe.isEmpty()) {
+                                Log.d(TAG, "Recipe information was downloaded but couldnt be stored in the Recipes List");
+                                new SweetAlertDialog(SearchActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                        .setTitleText("Oops...")
+                                        .setContentText("Problem saving data onto Recipes List")
+                                        .show();
+                            } else {
+                                RecipesAdapter myAdapter = new RecipesAdapter(SearchActivity.this, searchRecipe);
+                                recyclerView.setAdapter(myAdapter);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(SearchActivity.this, "Error: " + e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                error -> {
+                    Log.d("the res is error:", error.toString());
+                    new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("We cannot load data at this point, please try later")
+                            .show();
+                }
+        );
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Activity activity = null;
+        switch (item.getItemId()) {
+            case R.id.navigation_home:
+                activity = new HomeScreenActivity();
+                break;
+
+            case R.id.navigation_search:
+                activity = new SearchActivity();
+                break;
+
+            case R.id.navigation_account:
+                activity = new AccountActivity();
+                break;
+        }
+        startActivity(new Intent(this, activity.getClass()));
+        return true;
     }
 }

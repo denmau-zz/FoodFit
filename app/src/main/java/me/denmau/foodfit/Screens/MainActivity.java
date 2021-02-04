@@ -1,4 +1,4 @@
-package me.denmau.foodfit;
+package me.denmau.foodfit.Screens;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import me.denmau.foodfit.bottom_nav_views.HomeScreenActivity;
+import me.denmau.foodfit.R;
 
 public class MainActivity extends AppCompatActivity {
+
 
     /*
      * Created by Dennis Kamau
@@ -34,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-//        if (user != null) {
+        if (user != null) {
             Toast.makeText(this, "Hello, welcome back", Toast.LENGTH_LONG).show();
             goToHomeScreen();
-//        } else
-//            goToLoginScreen();
+        } else
+            goToLoginScreen();
     }
 
     private void goToHomeScreen() {
@@ -53,5 +54,4 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, AboutAppActivity.class));
         }, DELAY);
     }
-
 }

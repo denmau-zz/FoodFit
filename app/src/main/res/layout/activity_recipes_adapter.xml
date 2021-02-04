@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/search_result_cardview"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
     android:layout_width="170dp"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    cardview:cardCornerRadius="4dp">
+    cardview:cardCornerRadius="4dp"
+    tools:context=".adapter.RecipesAdapter">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +18,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/recipe_image_result"
+            android:id="@+id/image_of_recipe"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:background="@color/teal_700"
@@ -24,7 +26,7 @@
             android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/recipe_title_result"
+            android:id="@+id/title_of_recipe"
             android:layout_width="match_parent"
             android:layout_height="83dp"
             android:fontFamily="@font/roboto_regular"
