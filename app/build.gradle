@@ -45,9 +45,8 @@ dependencies {
     // Gson
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'io.gsonfire:gson-fire:1.8.3'
-    // retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    // Volley
+    implementation 'com.android.volley:volley:1.1.1'
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.navigation:navigation-fragment:2.3.2'

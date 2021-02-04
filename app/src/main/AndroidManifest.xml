@@ -11,9 +11,7 @@
         android:roundIcon="@drawable/app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodFit">
-        <activity android:name=".recipedetails.RecipeActivity"></activity>
-        <activity android:name=".spoonacularapi.DataProcessor" />
-        <activity android:name=".recipedetails.RecipeDetailsActivity" />
+        <activity android:name=".recipedetails.RecipeActivity" />
         <activity android:name=".bottom_nav_views.RandomActivity" />
         <activity android:name=".bottom_nav_views.SearchActivity" />
         <activity

@@ -17,11 +17,10 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import me.denmau.foodfit.R;
-import me.denmau.foodfit.recipedetails.RecipeDetailsActivity;
+import me.denmau.foodfit.recipedetails.RecipeActivity;
 import me.denmau.foodfit.spoonacularapi.model.Recipe;
 
 public class DataProcessor extends RecyclerView.Adapter<DataProcessor.RecipeViewHolder> {
-
     /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
@@ -35,7 +34,6 @@ public class DataProcessor extends RecyclerView.Adapter<DataProcessor.RecipeView
 
     private Context mContext;
     private List<Recipe> mData;
-
 
     public DataProcessor(Context mContext, List<Recipe> mData) {
         this.mContext = mContext;
@@ -62,7 +60,7 @@ public class DataProcessor extends RecyclerView.Adapter<DataProcessor.RecipeView
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, RecipeDetailsActivity.class);
+                Intent intent = new Intent(mContext, RecipeActivity.class);
                 intent.putExtra("id", mData.get(position).getId());
                 intent.putExtra("title", mData.get(position).getRecipeTitle());
                 intent.putExtra("img", mData.get(position).getRecipeImage());

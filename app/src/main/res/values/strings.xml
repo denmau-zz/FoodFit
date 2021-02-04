@@ -17,7 +17,7 @@
     <string name="create_account">CREATE ACCOUNT</string>
     <string name="repeat_password">Repeat Password</string>
     <string name="haveAccount">I HAVE AN ACCOUNT</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enterEmailResetPass">input your email to reset password</string>
     <string name="reset_password">RESET PASSWORD</string>
@@ -42,11 +42,15 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="search">Search</string>
-    <string name="ingridients">Ingredients</string>
+    <string name="ingredients">Ingredients</string>
     <string name="img_of_recipe">image of recipe</string>
     <string name="recipe_title">Recipe Title</string>
     <string name="vegetarian">vegeterian</string>
     <string name="mins">mins</string>
     <string name="instructions">Instructions</string>
+    <string name="dinner">Dinner</string>
+    <string name="lunch">Lunch</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="ingredients_list">Ingredients List</string>
 
 </resources>

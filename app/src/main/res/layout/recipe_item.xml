@@ -7,6 +7,7 @@
     android:layout_margin="10dp"
     android:backgroundTint="#dadef7"
     app:cardCornerRadius="10dp">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,19 +92,6 @@
 
 
         <TextView
-            android:id="@+id/dish_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="dessert"
-            android:textColor="@color/app_green"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/prep_time" />
-
-        <TextView
             android:id="@+id/foofit_score_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,8 +108,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:paddingStart="4dp"
             android:fontFamily="@font/roboto_regular"
+            android:paddingStart="4dp"
             android:text="score"
             android:textColor="@color/app_green"
             android:textSize="15sp"

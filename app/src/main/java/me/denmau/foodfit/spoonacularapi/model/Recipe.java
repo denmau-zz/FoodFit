@@ -9,17 +9,16 @@ public class Recipe {
     private int readyInMins;
     private double healthScore;
     private double foodFitScore;
-    private String dishType;
 
-    public Recipe(String id, String recipeTitle, String recipeImage, int numServings, int readyInMins, double healthScore, double foodFitScore, String dishType) {
+    public Recipe(String id, String title, String recipeImage, int numServings, int readyInMins, double healthScore, double foodFitScore) {
+
         this.id = id;
-        this.recipeTitle = recipeTitle;
+        this.recipeTitle = title;
         this.recipeImage = recipeImage;
         this.numServings = numServings;
         this.readyInMins = readyInMins;
         this.healthScore = healthScore;
         this.foodFitScore = foodFitScore;
-        this.dishType = dishType;
     }
 
     public String getId() {
@@ -78,11 +77,4 @@ public class Recipe {
         this.foodFitScore = foodFitScore;
     }
 
-    public String getDishType() {
-        return dishType;
-    }
-
-    public void setDishType(String dishType) {
-        this.dishType = dishType;
-    }
 }

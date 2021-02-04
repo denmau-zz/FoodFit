@@ -81,7 +81,7 @@ public class AboutAppActivity extends AppCompatActivity {
         aboutAppSlider = findViewById(R.id.aboutAppSliderImage);
         btnSkip = findViewById(R.id.btnSkip);
         btnNext = findViewById(R.id.btnNext);
-        btnGetStarted = findViewById(R.id.searchRecipeBtn);
+        btnGetStarted = findViewById(R.id.search_btn);
     }
 
     @Override

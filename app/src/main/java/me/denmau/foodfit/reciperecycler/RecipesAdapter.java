@@ -1,5 +1,6 @@
 package me.denmau.foodfit.reciperecycler;
 
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,16 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 import me.denmau.foodfit.R;
-import me.denmau.foodfit.recipedetails.RecipeDetailsActivity;
+import me.denmau.foodfit.recipedetails.RecipeActivity;
+import me.denmau.foodfit.spoonacularapi.model.Recipe;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeViewHolder> {
 
@@ -24,51 +27,70 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
      * Created by Dennis Kamau
      * website: https://www.denmau.me
      */
+    private Context mContext;
+    private List<Recipe> mData;
 
-    /* instance variables for RecipeAdapter*/
-    private final ArrayList<RecipeModel> recipes;
-    private final String TAG = "RecipesAdapter";
-
-    // Constructor
-    public RecipesAdapter(ArrayList<RecipeModel> recipes) {
-        this.recipes = recipes;
+    public RecipesAdapter(Context mContext, List<Recipe> mData) {
+        this.mContext = mContext;
+        this.mData = mData;
     }
 
     @NonNull
     @Override
     public RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new RecipeViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_item, parent, false));
+        View view;
+        LayoutInflater mInflater = LayoutInflater.from(mContext);
+        view = mInflater.inflate(R.layout.recipe_item, parent, false);
+        return new RecipeViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
 
-        RecipeModel currentItem = recipes.get(position);
+        Recipe currentItem = mData.get(position);
         // Bind the Data Received to the Views
-        holder.recipeImage.setImageResource(currentItem.getRecipeImage());
+
         holder.recipeTitle.setText(currentItem.getRecipeTitle());
-        holder.prepTime.setText(String.valueOf(currentItem.getPrepTime()) + "min");
+        holder.prepTime.setText(String.valueOf(currentItem.getReadyInMins()) + "min");
         holder.healthScore.setText(String.valueOf(currentItem.getHealthScore()));
         holder.foodFitScore.setText(String.valueOf(currentItem.getFoodFitScore()));
-        holder.dishType.setText(currentItem.getDishType());
+
+        // Set Recipe Image
+        if (currentItem.getRecipeImage().isEmpty()) {
+            // No image
+            holder.recipeImage.setImageResource(R.drawable.nopicture);
+        } else {
+            Picasso.get().load(mData.get(position).getRecipeImage()).into(holder.recipeImage);
+        }
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("CustomTag", "Relax Everything going Well");
+                Intent intent = new Intent(mContext, RecipeActivity.class);
+                intent.putExtra("id", mData.get(position).getId());
+//                intent.putExtra("title", mData.get(position).getRecipeTitle());
+//                intent.putExtra("img", mData.get(position).getRecipeImage());
+                Log.e("CustomTag", "RecipeActivity called for #" + mData.get(position).getId());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return recipes.size();
+        return mData.size();
     }
 
     /* inner ViewHolder class */
     public static class RecipeViewHolder extends RecyclerView.ViewHolder {
-        private final String TAG = "RecipeViewHolder";
-        public CardView recipeCardView; // for clickListener purposes
         // declare views
         public ImageView recipeImage;
         public TextView recipeTitle;
         public TextView prepTime;
         public TextView foodFitScore;
         public TextView healthScore;
-        public TextView dishType;
+        public CardView cardView;
 
         // Constructor to this inner class
         public RecipeViewHolder(@NonNull View itemView) {
@@ -79,22 +101,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             prepTime = itemView.findViewById(R.id.prep_time);
             foodFitScore = itemView.findViewById(R.id.foodFitScore);
             healthScore = itemView.findViewById(R.id.health_score);
-            dishType = itemView.findViewById(R.id.dish_type);
-
-            recipeCardView = (CardView) itemView.findViewById(R.id.cardView);
-
-            recipeCardView.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View view) {
-                    // When a recipe Card is clicked
-                    Log.i(TAG, "clicked on recipe card #" + getAdapterPosition());
-                    Toast.makeText(view.getContext(), "You clicked on recipe card #" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(view.getContext(), RecipeDetailsActivity.class);
-                    intent.putExtra("positionInArrayList", getAdapterPosition());
-                    view.getContext().startActivity(intent);
-                }
-            });
+            cardView = (CardView) itemView.findViewById(R.id.cardView);
         }
     }
     /* out of inner class : ViewHolder */

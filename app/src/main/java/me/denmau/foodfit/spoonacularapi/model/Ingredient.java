@@ -1,20 +1,30 @@
 package me.denmau.foodfit.spoonacularapi.model;
 
-import com.google.gson.annotations.SerializedName;
-
 public class Ingredient {
-    @SerializedName("id")
-    private int id;
-
-    @SerializedName("image")
-    private String image;
-
-    @SerializedName("name")
     private String name;
+    private String Thumbnail;
+    private boolean selected;
 
-    @SerializedName("originalString")
-    private String originalString;
+    public Ingredient(String name, String thumbnail) {
+        this.name = name;
+        // URL link from Spoonacular Docs
+        Thumbnail = "https://spoonacular.com/cdn/ingredients_100x100/" + thumbnail;
+        selected = false;
+    }
 
-    @SerializedName("amount")
-    private double amount;
+    public String getName() {
+        return name;
+    }
+
+    public String getThumbnail() {
+        return Thumbnail;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected() {
+        selected = !selected;
+    }
 }
