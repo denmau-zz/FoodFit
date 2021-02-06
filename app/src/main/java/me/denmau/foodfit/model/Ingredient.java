@@ -7,9 +7,8 @@ public class Ingredient {
      * website: https://www.denmau.me
      */
 
-
-    private String name;
-    private String Thumbnail;
+    private final String name;
+    private final String Thumbnail;
     private boolean selected;
 
     public Ingredient(String name, String thumbnail) {

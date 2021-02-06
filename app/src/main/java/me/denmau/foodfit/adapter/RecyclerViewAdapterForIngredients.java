@@ -19,8 +19,8 @@ import me.denmau.foodfit.R;
 import me.denmau.foodfit.model.Ingredient;
 
 public class RecyclerViewAdapterForIngredients extends RecyclerView.Adapter<RecyclerViewAdapterForIngredients.MyViewHolder> {
-    private Context mContext;
-    private List<Ingredient> mData;
+    private final Context mContext;
+    private final List<Ingredient> mData;
     public static List<String> ingredientsList;
 
     public RecyclerViewAdapterForIngredients(Context mContext, List<Ingredient> mData) {
@@ -53,6 +53,7 @@ public class RecyclerViewAdapterForIngredients extends RecyclerView.Adapter<Recy
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView ingredient_name;
         public ImageView ingredient_image;
+        // Constructor
         public MyViewHolder(View itemView) {
             super(itemView);
             ingredient_name = itemView.findViewById(R.id.ingredient_name);

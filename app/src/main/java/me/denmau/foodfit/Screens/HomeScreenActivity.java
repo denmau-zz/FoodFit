@@ -40,11 +40,9 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
      */
 
     private final String TAG = "HomeScreenActivity";
-    private List<Recipe> lstRecipe = new ArrayList<>();
+    private final List<Recipe> lstRecipe = new ArrayList<>();
     private JSONArray testArr;
-
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +102,6 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
                                 lstRecipe.add(new Recipe(jsonObject1.optString("id"), jsonObject1.optString("title"), jsonObject1.optString("image"),
                                         Integer.parseInt(jsonObject1.optString("servings")), Integer.parseInt(jsonObject1.optString("readyInMinutes")),
                                         Double.parseDouble(jsonObject1.optString("healthScore")), Double.parseDouble(jsonObject1.optString("spoonacularScore"))));
-                                // Once we call RecipesFragment it should call the Adapter and it should set the Recycler View by itself
 
                                 DisplayRecipeCards();
                             }
@@ -129,7 +126,7 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
         recyclerView.setHasFixedSize(true);
         int numberOfColumns = 2;
         recyclerView.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
-        mAdapter = new RecipesAdapter(this, lstRecipe);
+        RecyclerView.Adapter mAdapter = new RecipesAdapter(this, lstRecipe);
         recyclerView.setAdapter(mAdapter);
     }
 

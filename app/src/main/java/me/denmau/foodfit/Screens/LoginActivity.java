@@ -8,7 +8,6 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,14 +25,15 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import me.denmau.foodfit.R;
 import me.denmau.foodfit.ResetPasswordFragment;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+
     /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
      */
 
     private FirebaseAuth mAuth;
-    private String TAG = "LoginActivity";
+    private final String TAG = "LoginActivity";
     // declare views
     Button btnRegister, btnForgotPass, btnLogin;
     EditText emailField, passwordField;
@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         // instantiate views
         btnRegister = findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(this);
@@ -61,7 +60,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onStart() {
         super.onStart();
-
     }
 
     @Override
@@ -110,7 +108,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 }
                             });
                 }
-
                 break;
         }
     }
@@ -125,10 +122,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 .beginTransaction();
 
         // Add the Reset Password Fragment.
-        //fragmentTransaction.add(R.id.fragment_container, resetPasswordFrag).addToBackStack(null).commit();\
         fragmentTransaction.add(R.id.fragment_container, resetPasswordFrag).addToBackStack(null).commit();
-
-
     }
 
     private boolean passwordIsNotNullAndEmailIsValid(String capturedEmail, String capturedPassword) {
@@ -155,11 +149,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         /*
-         One line solution from @AdamvandenHoven
-        https://stackoverflow.com/questions/1819142/how-should-i-validate-an-e-mail-address
+         One line solution from @AdamvandenHoven - got it from StackOverflow
+         https://stackoverflow.com/questions/1819142/how-should-i-validate-an-e-mail-address
         */
         boolean emailIsValid = !TextUtils.isEmpty(capturedEmail) && Patterns.EMAIL_ADDRESS.matcher(capturedEmail).matches();
-        if (emailIsValid == false) {
+        if (!emailIsValid) {
             new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
                     .setTitleText("invalid email")
                     .show();

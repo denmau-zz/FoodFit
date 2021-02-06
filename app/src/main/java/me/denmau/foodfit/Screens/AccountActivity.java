@@ -3,6 +3,7 @@ package me.denmau.foodfit.Screens;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,8 +22,12 @@ import me.denmau.foodfit.R;
 
 public class AccountActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+    /*
+     * Created by Dennis Kamau
+     * website: https://www.denmau.me
+     */
+    private final String TAG = "AccountActivity";
     private FirebaseUser user;
-    private FirebaseAuth firebaseAuth;
     private ImageView userProfileImg;
     private TextView txtUserEmail;
     private Button btnSignOut;
@@ -32,10 +37,9 @@ public class AccountActivity extends AppCompatActivity implements BottomNavigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
-        //getting bottom navigation view and attaching the listener
+        //getting bottom navigation view and attaching the listener for nav button clicks
         BottomNavigationView bottomNav = findViewById(R.id.navigation);
         bottomNav.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
-
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         userProfileImg = findViewById(R.id.userProfileImg);
@@ -52,6 +56,7 @@ public class AccountActivity extends AppCompatActivity implements BottomNavigati
 
         Picasso.get().load(user.getPhotoUrl())
                 .into(userProfileImg);
+        Log.d(TAG, "Picasso is attempting to draw: " + user.getPhotoUrl());
 
         txtUserEmail.setText(user.getEmail());
 
@@ -61,8 +66,7 @@ public class AccountActivity extends AppCompatActivity implements BottomNavigati
             FirebaseAuth.getInstance().signOut();
         });
 
-        firebaseAuth = FirebaseAuth.getInstance();
-
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
         FirebaseAuth.AuthStateListener authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override

@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -41,7 +40,7 @@ public class SearchActivity extends AppCompatActivity implements BottomNavigatio
      * website: https://www.denmau.me
      */
 
-    private String TAG = "SearchActivity";
+    private final String TAG = "SearchActivity";
     private List<Recipe> searchRecipe = new ArrayList<>();
     private JSONArray testArr;
     private Button searchBtn;
@@ -98,43 +97,35 @@ public class SearchActivity extends AppCompatActivity implements BottomNavigatio
                 Request.Method.GET,
                 URL,
                 null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            testArr = (JSONArray) response.get("results");
-                            Log.i(TAG, "search results:" + String.valueOf(testArr));
-                            for (int i = 0; i < testArr.length(); i++) {
-                                JSONObject jsonObject1;
-                                jsonObject1 = testArr.getJSONObject(i);
-//                                try {
-                                searchRecipe.add(new Recipe(jsonObject1.optString("id"), jsonObject1.optString("title"), jsonObject1.optString("image"),
-                                        Integer.parseInt(jsonObject1.optString("servings")), Integer.parseInt(jsonObject1.optString("readyInMinutes")),
-                                        Double.parseDouble(jsonObject1.optString("healthScore")), Double.parseDouble(jsonObject1.optString("spoonacularScore"))));
-//                                } catch (Exception e) {
-//                                    Log.d(TAG, "Error: " + e.getMessage());
-//                                    Toast.makeText(SearchActivity.this, "We had trouble collecting some data", Toast.LENGTH_SHORT).show();
-//                                }
-                            }
-
-                            if (searchRecipe.isEmpty()) {
-                                Log.d(TAG, "Recipe information was downloaded but couldnt be stored in the Recipes List");
-                                new SweetAlertDialog(SearchActivity.this, SweetAlertDialog.ERROR_TYPE)
-                                        .setTitleText("Oops...")
-                                        .setContentText("Problem saving data onto Recipes List")
-                                        .show();
-                            } else {
-                                RecipesAdapter myAdapter = new RecipesAdapter(SearchActivity.this, searchRecipe);
-                                recyclerView.setAdapter(myAdapter);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(SearchActivity.this, "Error: " + e.toString(), Toast.LENGTH_SHORT).show();
+                response -> {
+                    try {
+                        testArr = (JSONArray) response.get("results");
+                        Log.i(TAG, "search results:" + String.valueOf(testArr));
+                        for (int i = 0; i < testArr.length(); i++) {
+                            JSONObject jsonObject1;
+                            jsonObject1 = testArr.getJSONObject(i);
+                            searchRecipe.add(new Recipe(jsonObject1.optString("id"), jsonObject1.optString("title"), jsonObject1.optString("image"),
+                                    Integer.parseInt(jsonObject1.optString("servings")), Integer.parseInt(jsonObject1.optString("readyInMinutes")),
+                                    Double.parseDouble(jsonObject1.optString("healthScore")), Double.parseDouble(jsonObject1.optString("spoonacularScore"))));
                         }
+
+                        if (searchRecipe.isEmpty()) {
+                            Log.d(TAG, "Recipe information was downloaded but couldn't be stored in the Recipes List");
+                            new SweetAlertDialog(SearchActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                    .setTitleText("Oops...")
+                                    .setContentText("Problem saving data onto Recipes List")
+                                    .show();
+                        } else {
+                            RecipesAdapter myAdapter = new RecipesAdapter(SearchActivity.this, searchRecipe);
+                            recyclerView.setAdapter(myAdapter);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(SearchActivity.this, "Error: " + e.toString(), Toast.LENGTH_SHORT).show();
                     }
                 },
                 error -> {
-                    Log.d("the res is error:", error.toString());
+                    Log.d(TAG, "Response was actually an error:" + error.toString());
                     new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
                             .setTitleText("We cannot load data at this point, please try later")
                             .show();

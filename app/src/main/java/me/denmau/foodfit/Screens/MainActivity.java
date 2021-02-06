@@ -15,7 +15,6 @@ import me.denmau.foodfit.R;
 
 public class MainActivity extends AppCompatActivity {
 
-
     /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me

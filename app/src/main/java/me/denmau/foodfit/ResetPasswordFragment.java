@@ -27,7 +27,7 @@ public class ResetPasswordFragment extends Fragment {
      */
 
     FirebaseAuth mAuth;
-    String TAG = "ResetPasswordFragment";
+    private final String TAG = "ResetPasswordFragment";
     Context thisContext;
 
     public ResetPasswordFragment() {
@@ -55,7 +55,6 @@ public class ResetPasswordFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         Button btnResetPass = view.findViewById(R.id.btnResetPassword);
         EditText inputEmailField = view.findViewById(R.id.reset_email);
         btnResetPass.setOnClickListener(v -> {

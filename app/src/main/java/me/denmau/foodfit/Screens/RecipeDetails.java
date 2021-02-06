@@ -2,7 +2,6 @@ package me.denmau.foodfit.Screens;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.widget.ImageView;
@@ -30,15 +29,18 @@ import me.denmau.foodfit.R;
 import me.denmau.foodfit.adapter.RecyclerViewAdapterForIngredients;
 import me.denmau.foodfit.model.Ingredient;
 
+import static androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT;
+import static androidx.core.text.HtmlCompat.fromHtml;
+
 public class RecipeDetails extends AppCompatActivity {
 
     private TextView title, ready_in, servings, healthy, instructions;
-    private ImageView img, vegeterian;
-    private List<Ingredient> ingredientsLst = new ArrayList<Ingredient>();
+    private ImageView img, vegetarian;
+    private final List<Ingredient> ingredientsLst = new ArrayList<Ingredient>();
     private RecyclerView ingredientsRecyclerView;
     private JSONArray ingredientsArr;
     private String recipeId;
-    private String TAG = "RecipeDetails";
+    private final String TAG = "RecipeDetails";
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
@@ -58,7 +60,7 @@ public class RecipeDetails extends AppCompatActivity {
         title = (TextView) findViewById(R.id.recipeTitle);
         ready_in = (TextView) findViewById(R.id.recipe_ready_in_min);
         servings = (TextView) findViewById(R.id.num_of_serving);
-        vegeterian = (ImageView) findViewById(R.id.recipe_vegetarian);
+        vegetarian = (ImageView) findViewById(R.id.recipe_vegetarian);
         instructions = (TextView) findViewById(R.id.recipe_instructions);
         healthy = (TextView) findViewById(R.id.is_recipe_healthy);
     }
@@ -85,19 +87,20 @@ public class RecipeDetails extends AppCompatActivity {
                             healthy.setText("Healthy");
                         }
                         if ((boolean) response.get("vegetarian")) {
-                            vegeterian.setImageResource(R.drawable.vegeterian);
+                            vegetarian.setImageResource(R.drawable.vegeterian);
                         }
                         try {
                             if (response.get("instructions").equals("")) {
+                                Log.d(TAG, "Found no instructions");
                                 throw new Exception("No Instructions");
                             } else
-                                instructions.setText(Html.fromHtml((String) response.get("instructions")));
+                                instructions.setText(fromHtml((String) response.get("instructions"), FROM_HTML_MODE_COMPACT));
                         } catch (Exception e) {
                             // Display link to user upon failure to get instructions
                             // User can click on link to go to actual website
                             String msg = "Unfortunately, we couldn't fetch the recipe, please this link: " + "<a href=" + response.get("spoonacularSourceUrl") + ">" + response.get("spoonacularSourceUrl") + "</a>";
                             instructions.setMovementMethod(LinkMovementMethod.getInstance());
-                            instructions.setText(Html.fromHtml(msg));
+                            instructions.setText(fromHtml(msg, FROM_HTML_MODE_COMPACT));
                         }
                         ingredientsArr = (JSONArray) response.get("extendedIngredients");
                         for (int i = 0; i < ingredientsArr.length(); i++) {
@@ -113,9 +116,7 @@ public class RecipeDetails extends AppCompatActivity {
 
                         ingredientsRecyclerView.setLayoutManager(mLayoutManager);
                         ingredientsRecyclerView.setAdapter(mAdapter);
-
                         ingredientsRecyclerView.setAdapter(mAdapter);
-
 
                     } catch (JSONException e) {
                         e.printStackTrace();

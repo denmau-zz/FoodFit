@@ -28,15 +28,15 @@ Users are authenticated via firebase, once logged in, the following actions can 
 *   Random Recipes
 
 The JSON response is parsed into card views in a scrollable recycler view showing cards of recipes
-*	Each card shows the name of the recipe, picture, health score and the preparation time.
-*	On clicking on a recipe in the recycle view, a new activity shows a little bit about the recipe: the ingredients(pictures) needed, rating and preparation time.
-*	There is a button to select the recipe, which leads to a new activity displaying the actual recipe: ingredients,  cooking steps and serving suggestion and nutrition info.
-*	Swiping from left displays a side bar, that shows the logged in user, and credits. There is also a log out button.
+*	Each card shows the name and picture of the recipe
+*	 a new activity shows a little bit about the recipe: the ingredients(pictures) needed, rating and preparation time.
+*	On clicking on a recipe in the recycle view, there is a button to select the recipe, which leads to a new activity displaying the actual recipe: ingredients,  cooking steps and serving suggestion and nutrition info.
+*	Swiping from left displays a side bar, that shows the logged in user, and credits. 
  
 The Home screen contains 3 bottom navigation buttons:
 *	Home
 *	Search Recipe
-*	Random Recipe
+*	Profile Recipe
 <br/>
 
 ## UI / UX DESIGN

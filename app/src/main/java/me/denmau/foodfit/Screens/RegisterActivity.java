@@ -21,17 +21,17 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import me.denmau.foodfit.R;
 
 public class RegisterActivity extends AppCompatActivity {
+
     /*
      * Created by Dennis Kamau
      * website: https://www.denmau.me
      */
 
-    String TAG = "RegisterActivity";
+    private final String TAG = "RegisterActivity";
 
     Button btnHaveAccount, btnCreateAccount;
     EditText emailField, passwordField, repeatPasswordField;
-
-    // Instance variables
+    // identify variables
     String password, repeatPassword, email;
     private FirebaseAuth mAuth;
 
@@ -39,7 +39,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
         // instantiate views
         btnHaveAccount = findViewById(R.id.btnIHaveAccount);
         btnCreateAccount = findViewById(R.id.btnCreateAccount);
@@ -53,12 +52,10 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         btnHaveAccount.setOnClickListener(v -> {
             // Go back to Login screen
             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
         });
-
         btnCreateAccount.setOnClickListener(v -> {
             email = emailField.getText().toString().trim();
             password = passwordField.getText().toString().trim();
@@ -68,11 +65,9 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void createAccount(String email, String password, String repeatPassword) {
-
         if (!validateEmailAndPasswords(email, password, repeatPassword)) {
             return;
         }
-
         SweetAlertDialog createAccountProgress = new SweetAlertDialog(RegisterActivity.this, SweetAlertDialog.PROGRESS_TYPE);
         createAccountProgress.setTitleText("Creating Account");
         createAccountProgress.setCancelable(false);
@@ -140,11 +135,11 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         /*
-         One line solution from @AdamvandenHoven
+         One line solution from @AdamvandenHoven - got it from Stackoverflow
         https://stackoverflow.com/questions/1819142/how-should-i-validate-an-e-mail-address
         */
         boolean emailIsValid = !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
-        if (emailIsValid == false) {
+        if (!emailIsValid) {
             new SweetAlertDialog(RegisterActivity.this, SweetAlertDialog.ERROR_TYPE)
                     .setTitleText("invalid email")
                     .show();

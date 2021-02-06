@@ -28,7 +28,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
      * website: https://www.denmau.me
      */
 
-    /* inner ViewHolder class */
+    /* start of inner ViewHolder class */
     public static class RecipeViewHolder extends RecyclerView.ViewHolder {
         // declare views
         public ImageView recipeImage;
@@ -46,8 +46,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
     }
     /* out of inner class : ViewHolder */
 
-    private String TAG = "RecipesAdapter";
-    private Context mContext;
+    private final String TAG = "RecipesAdapter";
+    private final Context mContext;
     private final List<Recipe> mData;
 
     public RecipesAdapter(Context mContext, List<Recipe> mData) {
@@ -66,7 +66,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
         Recipe currentRecipe = mData.get(position);
         // Bind Recipe Data to the Card Views
-
         if (currentRecipe.getRecipeImage().isEmpty()) {
             // No image
             holder.recipeImage.setImageResource(R.drawable.nopicture);
@@ -74,7 +73,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             Picasso.get().load(currentRecipe.getRecipeImage())
                     .into(holder.recipeImage);
         }
-        Log.d(TAG, "Recipe Thumbnail: " + currentRecipe.getRecipeImage());
         holder.recipeTitle.setText(currentRecipe.getRecipeTitle());
         // Ensure CardView is clickable
         holder.cardView.setOnClickListener(new View.OnClickListener() {

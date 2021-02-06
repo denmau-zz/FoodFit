@@ -54,5 +54,11 @@
     <string name="ingredients_list">Ingredients List</string>
     <string name="account">Account</string>
     <string name="email">Email</string>
+    <string name="description1">We compute the nutritional information for recipes automatically using a powerful algorithm. With this information, you can find individual recipes or even create entire meal plans that satisfy your dietary goals</string>
+    <string name="description2">We automatically analyze recipes to check for ingredients that contain common allergens, such as wheat, dairy, eggs, soy, nuts, etc. We also determine whether a recipe is vegan, vegetarian, Paleo friendly, Whole30 compliant, and more</string>
+    <string name="description3">We are more than just a recipe. We provide solutions to make any food-related vision a reality.</string>
+    <string name="SpoonacularApiProviderShoutOut">Food and Nutrition data provided by Spoonacular API</string>
+    <string name="spoonaluar_web_link">https://www.spoonacular.com/food-api</string>
+    <string name="app_developed_by">App Deveveloped by Dennis Kamau</string>
 
 </resources>

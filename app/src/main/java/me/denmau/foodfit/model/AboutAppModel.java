@@ -21,7 +21,6 @@ public class AboutAppModel {
     }
 
     // Getters
-
     public int getAboutAppBanner() {
         return aboutAppBanner;
     }

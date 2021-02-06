@@ -26,11 +26,12 @@ public class AboutAppActivity extends AppCompatActivity {
      * website: https://www.denmau.me
      */
 
-    private static final String TAG = "AboutAppActivity";
-    // This activity should display sets of data that illustrate 3 screens, each showing what the app is about
+    /* This activity should display sets of data that illustrate 3 screens, each showing what the app is about */
 
+    private static final String TAG = "AboutAppActivity";
     int currentScreen = -1;
     private final Handler handler = new Handler(Looper.getMainLooper());
+
     /*
     if user clicked skip button in screen 1 and goes to screen 2
     prevent handler.postDelayed from setting content to back to screen 2
@@ -63,9 +64,9 @@ public class AboutAppActivity extends AppCompatActivity {
         String aboutAppTitle2 = "Special Diets / Intolerance";
         String aboutAppTitle3 = "Towards a healthy you!";
         // AboutApp Descriptions
-        String aboutAppDesc1 = "We compute the nutritional information for recipes automatically using a powerful algorithm. With this information, you can find individual recipes or even create entire meal plans that satisfy your dietary goals";
-        String aboutAppDesc2 = "We automatically analyze recipes to check for ingredients that contain common allergens, such as wheat, dairy, eggs, soy, nuts, etc. We also determine whether a recipe is vegan, vegetarian, Paleo friendly, Whole30 compliant, and more";
-        String aboutAppDesc3 = "We are more than just a recipe. We provide solutions to make any food-related vision a reality.";
+        String aboutAppDesc1 = getString(R.string.description1);
+        String aboutAppDesc2 = getString(R.string.description2);
+        String aboutAppDesc3 = getString(R.string.description3);
         // AboutApp Slider Images
         int aboutAppSlider1 = R.drawable.about_app_position_1;
         int aboutAppSlider2 = R.drawable.about_app_position_2;
@@ -108,7 +109,6 @@ public class AboutAppActivity extends AppCompatActivity {
             else if (currentScreen == 1) updateUI(2);
             // the skip button is invisible in screen 3, hence it cannot be clicked
         });
-
         // when getStarted button is clicked, go to Login screen
         btnGetStarted.setOnClickListener(v -> startActivity(new Intent(AboutAppActivity.this, RegisterActivity.class)));
     }
@@ -116,7 +116,7 @@ public class AboutAppActivity extends AppCompatActivity {
     private final Runnable toastRunnable = new Runnable() {
         @Override
         public void run() {
-            // as long as we are not viewing the last screen, go to next screen
+            // as long as we are not viewing the last screen; go to the next screen
             if (currentScreen == 2) {
                 handler.removeCallbacks(toastRunnable);
             } else updateUI((currentScreen + 1));
