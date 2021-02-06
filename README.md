@@ -1,6 +1,6 @@
 # Food Fit
 
-This is a personal project that demonstrates understanding of the <b>eMobilis Mobile Development Bootcamp</b> that I have just completed.
+This is a personal project that demonstrates understanding of the <b>eMobilis Mobile Development Bootcamp</b>, necessary for my graduation.
 This intensive bootcamp took 4 hours a day for 20 weekdays, totalling to 80 hours, including a 5 day incubation session.
 
 > ## Food Fit is an android app that gives you access to 5,000+ recipes each with nutrition information.
@@ -66,5 +66,3 @@ The Home screen contains 3 bottom navigation buttons:
     <img src="app_pictures\Search Recipe.png" width="45%" />
     <img src="app_pictures\Recipe view.png" width="45%" />
 </p>
-
-
