@@ -6,8 +6,8 @@ This intensive bootcamp took 4 hours a day for 20 weekdays, totalling to 80 hour
 > ## Food Fit is an android app that gives you access to 5,000+ recipes each with nutrition information.
 
 <p float="left">
-    <img src="app_pictures\Food Fit banner Screen 1.png" width="40%" />
-    <img src="app_pictures\Food Fit banner Screen 2.png" width="40%" />
+    <img src="app_pictures\Food Fit banner Screen 1.png" width="45%" />
+    <img src="app_pictures\Food Fit banner Screen 2.png" width="45%" />
 </p>
 
 The app renders data in JSON (from Spoonacular API) into card views placed in a recycler view.
@@ -54,17 +54,17 @@ The Home screen contains 3 bottom navigation buttons:
 
 ## Screenshots
 <p float="left">
-<img src="app_pictures\Splash Screen.png" width="40%" />
-<img src="app_pictures\What the app is all about screen 1.png" width="40%" />
-<img src="app_pictures\What the app is all about screen 2.png" width="40%" />
-<img src="app_pictures\What the app is all about screen 3.png" width="40%" />
-<img src="app_pictures\create account.png" width="40%" />
-<img src="app_pictures\Login Screen.png" width="40%" />
-<img src="app_pictures\reset password- fragment.png" width="40%" />
-<img src="app_pictures\Home Screen.png" width="40%" />
-<img src="app_pictures\account.png" width="40%" />
-<img src="app_pictures\Search Recipe.png" width="40%" />
-<img src="app_pictures\Recipe view.png" width="40%" />
+    <img src="app_pictures\Splash Screen.png" width="45%" />
+    <img src="app_pictures\What the app is all about screen 1.png" width="45%" />
+    <img src="app_pictures\What the app is all about screen 2.png" width="45%" />
+    <img src="app_pictures\What the app is all about screen 3.png" width="45%" />
+    <img src="app_pictures\create account.png" width="45%" />
+    <img src="app_pictures\Login Screen.png" width="45%" />
+    <img src="app_pictures\reset password- fragment.png" width="45%" />
+    <img src="app_pictures\Home Screen.png" width="45%" />
+    <img src="app_pictures\account.png" width="45%" />
+    <img src="app_pictures\Search Recipe.png" width="45%" />
+    <img src="app_pictures\Recipe view.png" width="45%" />
 </p>
 
 
