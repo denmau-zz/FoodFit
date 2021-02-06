@@ -91,7 +91,8 @@ public class SearchActivity extends AppCompatActivity implements BottomNavigatio
 
     private void searchRecipe(String search) {
         searchRecipe = new ArrayList<Recipe>();
-        String URL = "https://api.spoonacular.com/recipes/complexSearch?query=" + search + "&number=10&addRecipeInformation=true&instructionsRequired=true&apiKey=cd8529246615472c836a287e70267be1";
+        // Add your API key
+        String URL = "https://api.spoonacular.com/recipes/complexSearch?query=" + search + "&number=10&addRecipeInformation=true&instructionsRequired=true&apiKey=";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,

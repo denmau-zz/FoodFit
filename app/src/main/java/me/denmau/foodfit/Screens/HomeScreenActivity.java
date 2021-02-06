@@ -83,7 +83,8 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
     }
 
     public void loadRandomDataIntoTheArrayList() {
-        String URL = " https://api.spoonacular.com/recipes/random?number=15&instructionsRequired=true&apiKey=cd8529246615472c836a287e70267be1";
+        // Add your API key
+        String URL = " https://api.spoonacular.com/recipes/random?number=15&instructionsRequired=true&apiKey=";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
