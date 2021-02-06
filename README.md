@@ -9,8 +9,9 @@ This intensive bootcamp took 4 hours a day for 20 weekdays, totalling to 80 hour
     <img src="app_pictures\Food Fit banner Screen 1.png" width="40%" />
     <img src="app_pictures\Food Fit banner Screen 2.png" width="40%" />
 </p>
+
 The app renders data in JSON (from Spoonacular API) into card views placed in a recycler view.
-<br/>
+
 ## Food Fit App Development Cycle
 - [x] Strategy
 - [x] Analysis and Planning
@@ -24,7 +25,6 @@ The app renders data in JSON (from Spoonacular API) into card views placed in a 
 * Working with third-party libraries
 * Layout
 * Mobile App Development Life cycle
-<br/>
 
 ## Tech Stack
 *   Language: Java
@@ -51,7 +51,6 @@ The Home screen contains 3 bottom navigation buttons:
 *	Home
 *	Search Recipe
 *	Account - signing out purposes and credits
-<br/>
 
 ## Screenshots
 <p float="left">
