@@ -3,9 +3,13 @@
 This is a personal project that demonstrates understanding of the <b>eMobilis Mobile Development Bootcamp</b> that I have just completed.
 This intensive bootcamp took 4 hours a day for 20 weekdays, totalling to 80 hours, including a 5 day incubation session.
 
-> ## Food Fit is an android app that gives you access to 5,000+ recipes and nutrition information for each.
+> ## Food Fit is an android app that gives you access to 5,000+ recipes each with nutrition information.
 
-The app renders data in JSON(from the API) into card views placed in a recycler view.
+<p float="left">
+<img src="app_pictures\Food Fit banner Screen 1.png" width="50%" />
+<img src="app_pictures\Food Fit banner Screen 2.png" width="50%" />
+</p>
+The app renders data in JSON (from Spoonacular API) into card views placed in a recycler view.
 <br/>
 ## Food Fit App Development Cycle
 - [x] Strategy
@@ -30,6 +34,7 @@ The app renders data in JSON(from the API) into card views placed in a recycler 
     * Gson - To and Fro Json to Java Conversion
     * Picasso - Draw images from web links
     * Volley - HTTP library for networking 
+*   API : Spoonacular Food API
 
 ## About Food Fit
 Users are authenticated via firebase, once logged in, the following actions can be performed:
@@ -48,7 +53,7 @@ The Home screen contains 3 bottom navigation buttons:
 *	Account - signing out purposes and credits
 <br/>
 
-## UI / UX DESIGN
+## Screenshots
 <p float="left">
 <img src="app_pictures\Splash Screen.png" width="150" />
 <img src="app_pictures\What the app is all about screen 1.png" width="150" />
