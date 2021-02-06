@@ -54,17 +54,17 @@ The Home screen contains 3 bottom navigation buttons:
 
 ## Screenshots
 <p float="left">
-<img src="app_pictures\Splash Screen.png" width="150" />
-<img src="app_pictures\What the app is all about screen 1.png" width="150" />
-<img src="app_pictures\What the app is all about screen 2.png" width="150" />
-<img src="app_pictures\What the app is all about screen 3.png" width="150" />
-<img src="app_pictures\create account.png" width="150" />
-<img src="app_pictures\Login Screen.png" width="150" />
-<img src="app_pictures\reset password- fragment.png" width="150" />
-<img src="app_pictures\Home Screen.png" width="150" />
-<img src="app_pictures\account.png" width="150" />
-<img src="app_pictures\Search Recipe.png" width="150" />
-<img src="app_pictures\Recipe view.png" width="150" />
+<img src="app_pictures\Splash Screen.png" width="40%" />
+<img src="app_pictures\What the app is all about screen 1.png" width="40%" />
+<img src="app_pictures\What the app is all about screen 2.png" width="40%" />
+<img src="app_pictures\What the app is all about screen 3.png" width="40%" />
+<img src="app_pictures\create account.png" width="40%" />
+<img src="app_pictures\Login Screen.png" width="40%" />
+<img src="app_pictures\reset password- fragment.png" width="40%" />
+<img src="app_pictures\Home Screen.png" width="40%" />
+<img src="app_pictures\account.png" width="40%" />
+<img src="app_pictures\Search Recipe.png" width="40%" />
+<img src="app_pictures\Recipe view.png" width="40%" />
 </p>
 
 
