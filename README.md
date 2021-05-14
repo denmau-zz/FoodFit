@@ -18,7 +18,7 @@ The app renders data in JSON (from Spoonacular API) into card views placed in a 
 - [x] UI / UX Design
 - [x] App Development
 - [x] Testing
-- [ ] <b>Deployment</b>
+- [x] Deployment <a href="https://drive.google.com/drive/folders/1cmIpdWfX9TAK08KQArfVofIYuxxUxYm4?usp=sharing">Get APK</a>
 
 ## I created this app to demonstrate skills in:
 * Firebase Authentication
