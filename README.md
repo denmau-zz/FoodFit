@@ -6,10 +6,10 @@ This intensive bootcamp took 4 hours a day for 20 weekdays, totalling to 80 hour
 > ## Food Fit is an android app that gives you access to 5,000+ recipes each with nutrition information.
 
 <p float="left">
-<img src="app_pictures\HomeScreen.png" 
-    width="45%" />
-    <img src="app_pictures\FoodFitScreenshot1.png" width="45%" />
+    <img src="app_pictures\HomeScreen.png" width="45%" />
+    <img src="app_pictures\appbanner.png" width="45%" />
 </p>
+
 
 The app renders data in JSON (from Spoonacular API) into card views placed in a recycler view.
 
