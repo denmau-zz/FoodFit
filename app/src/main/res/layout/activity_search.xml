@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Screens.SearchActivity">
+    tools:context=".screens.SearchActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_label"
@@ -107,10 +107,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerviewForSearchResults"
         android:layout_width="403dp"
-        android:layout_height="414dp"
+        android:layout_height="0dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
