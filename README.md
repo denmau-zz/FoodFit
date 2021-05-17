@@ -1,23 +1,23 @@
 # Food Fit
 
-This is a personal project that demonstrates understanding of the <b>eMobilis Mobile Development Bootcamp</b>, necessary for my graduation.
-This intensive bootcamp took 4 hours a day for 20 weekdays, totalling to 80 hours, including a 5 day incubation session.
-
 > ## Food Fit is an android app that gives you access to 5,000+ recipes each with nutrition information.
+
+ <a href="https://drive.google.com/drive/folders/1cmIpdWfX9TAK08KQArfVofIYuxxUxYm4?usp=sharing">
+  <img src="app_pictures\downloadFoodFit.png" />
+</a>
 
 <p float="left">
     <img src="app_pictures\homescreen.png" width="45%" />
     <img src="app_pictures\appbanner.png" width="45%" />
 </p>
 
-
-The app renders data in JSON (from Spoonacular API) into card views placed in a recycler view.
+The app renders data in JSON format (from Spoonacular Food API) into card views placed in a recycler view.
 
 ## Food Fit App Development Cycle
 
 - [x] Strategy
 - [x] Analysis and Planning
-- [x] UI / UX Design
+- [x] UI / UX Design (using Adobe XD)
 - [x] App Development
 - [x] Testing
 - [x] Deployment <a href="https://drive.google.com/drive/folders/1cmIpdWfX9TAK08KQArfVofIYuxxUxYm4?usp=sharing">Download App APK</a>
@@ -26,16 +26,17 @@ The app renders data in JSON (from Spoonacular API) into card views placed in a 
 
 - Firebase Authentication
 - Working with third-party libraries
-- Layout
+- Networkng and working with APIs
+- Layouting
 - Mobile App Development Life cycle
 
 ## Tech Stack
 
 - Language: Java
-- Authentication : Firebase : Email & Password
+- Authentication : Firebase
 - Libraries:
   - Sweet Alert Dialog - nice looking progress and alert dialogs
-  - Gson - To and Fro Json to Java Conversion
+  - Gson - To and Fro Json - Java Conversion
   - Picasso - Draw images from web links
   - Volley - HTTP library for networking
 - API : Spoonacular Food API
@@ -60,6 +61,10 @@ The Home screen contains 3 bottom navigation buttons:
 - Search Recipe
 - Account - signing out purposes and credits
 
+ <a href="https://drive.google.com/drive/folders/1cmIpdWfX9TAK08KQArfVofIYuxxUxYm4?usp=sharing">
+  <img src="app_pictures\downloadFoodFit.png" />
+</a>
+
 ## Screenshots
 
 <p float="left">
@@ -76,3 +81,7 @@ The Home screen contains 3 bottom navigation buttons:
     <img src="app_pictures\searchrecipe.png" width="45%" />
     <img src="app_pictures\recipeview.png" width="45%" />
 </p>
+
+ <a href="https://drive.google.com/drive/folders/1cmIpdWfX9TAK08KQArfVofIYuxxUxYm4?usp=sharing">
+  <img src="app_pictures\downloadFoodFit.png" />
+</a>
