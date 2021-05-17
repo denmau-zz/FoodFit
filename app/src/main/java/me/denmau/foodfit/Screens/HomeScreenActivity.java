@@ -1,4 +1,4 @@
-package me.denmau.foodfit.Screens;
+package me.denmau.foodfit.screens;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -83,34 +82,31 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
     }
 
     public void loadRandomDataIntoTheArrayList() {
-        // Add your API key
-        String URL = " https://api.spoonacular.com/recipes/random?number=15&instructionsRequired=true&apiKey=";
+        // Please add your API key
+        String URL = "https://api.spoonacular.com/recipes/random?number=15&instructionsRequired=true&apiKey=";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 URL,
                 null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
+                response -> {
 
-                        try {
-                            testArr = (JSONArray) response.get("recipes");
-                            Log.i("the res is:", String.valueOf(testArr));
-                            for (int i = 0; i < testArr.length(); i++) {
-                                JSONObject jsonObject1;
-                                jsonObject1 = testArr.getJSONObject(i);
-                                lstRecipe.add(new Recipe(jsonObject1.optString("id"), jsonObject1.optString("title"), jsonObject1.optString("image"),
-                                        Integer.parseInt(jsonObject1.optString("servings")), Integer.parseInt(jsonObject1.optString("readyInMinutes")),
-                                        Double.parseDouble(jsonObject1.optString("healthScore")), Double.parseDouble(jsonObject1.optString("spoonacularScore"))));
+                    try {
+                        testArr = (JSONArray) response.get("recipes");
+                        Log.i("the res is:", String.valueOf(testArr));
+                        for (int i = 0; i < testArr.length(); i++) {
+                            JSONObject jsonObject1;
+                            jsonObject1 = testArr.getJSONObject(i);
+                            lstRecipe.add(new Recipe(jsonObject1.optString("id"), jsonObject1.optString("title"), jsonObject1.optString("image"),
+                                    Integer.parseInt(jsonObject1.optString("servings")), Integer.parseInt(jsonObject1.optString("readyInMinutes")),
+                                    Double.parseDouble(jsonObject1.optString("healthScore")), Double.parseDouble(jsonObject1.optString("spoonacularScore"))));
 
-                                DisplayRecipeCards();
-                            }
-                        } catch (JSONException e) {
-
-                            Toast.makeText(HomeScreenActivity.this, "Couldn't fetch Recipe!", Toast.LENGTH_SHORT).show();
-                            e.printStackTrace();
+                            DisplayRecipeCards();
                         }
+                    } catch (JSONException e) {
+
+                        Toast.makeText(HomeScreenActivity.this, "Couldn't fetch Recipe!", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
                     }
                 },
                 error -> {

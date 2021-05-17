@@ -1,4 +1,4 @@
-package me.denmau.foodfit.Screens;
+package me.denmau.foodfit.screens;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -66,7 +66,8 @@ public class RecipeDetails extends AppCompatActivity {
     }
 
     private void fetchAndDisplayRecipeInfo(final String recipeId) {
-        String URL = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=a1d1fd312d514991be23ea34891aaef9";
+        // Please add your API key
+        String URL = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
@@ -104,9 +105,9 @@ public class RecipeDetails extends AppCompatActivity {
                         }
                         ingredientsArr = (JSONArray) response.get("extendedIngredients");
                         for (int i = 0; i < ingredientsArr.length(); i++) {
-                            JSONObject jsonObject1;
-                            jsonObject1 = ingredientsArr.getJSONObject(i);
-                            ingredientsLst.add(new Ingredient(jsonObject1.optString("originalString"), jsonObject1.optString("image")));
+                            JSONObject jsonObject;
+                            jsonObject = ingredientsArr.getJSONObject(i);
+                            ingredientsLst.add(new Ingredient(jsonObject.optString("originalString"), jsonObject.optString("image")));
                         }
 
                         ingredientsRecyclerView = (RecyclerView) findViewById(R.id.recipe_ingredients_rv);
@@ -122,7 +123,7 @@ public class RecipeDetails extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 },
-                error -> Log.i("the res is error:", error.toString())
+                error -> Log.i("the response is error:", error.toString())
         );
         requestQueue.add(jsonObjectRequest);
     }
